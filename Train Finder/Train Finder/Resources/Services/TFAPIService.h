@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <Overcoat/Overcoat.h>
 
-#import "TFStopsCollection.h"
+#import "TFStopPointsResponse.h"
 
 @interface TFAPIService : OVCHTTPSessionManager
-- (void)getStopsWithCallback:(void (^)(TFStopsCollection *response, NSError *error))callback;
+- (void)getStopsWithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback;
 
 @end

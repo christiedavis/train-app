@@ -1,5 +1,5 @@
 //
-//  TFStopsCollection.h
+//  TFStopPointsResponse.h
 //  Train Finder
 //
 //  Created by Christie Davis on 4/08/19.
@@ -7,11 +7,8 @@
 //
 
 #import "MTLModel.h"
+#import <Overcoat/Overcoat.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface TFStopsCollection : MTLModel
+@interface TFStopPointsResponse : MTLModel <MTLJSONSerializing>
 
 @end
-
-NS_ASSUME_NONNULL_END

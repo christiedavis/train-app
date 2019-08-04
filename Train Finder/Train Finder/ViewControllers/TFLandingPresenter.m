@@ -15,7 +15,7 @@
 @property (strong, nonatomic) TFRepositoryFactory* repoFactory;
 @property (strong, nonatomic) CLLocation* lastRecordedLocation;
 
-@property (strong, nonatomic) TFStopsCollection* stops;
+@property (strong, nonatomic) TFStopPointsResponse* stops;
 @end
 
 
@@ -47,7 +47,7 @@
 }
 
 - (void)getStops {
-    [self.repoFactory.apiService getStopsWithCallback:^(TFStopsCollection *response, NSError *error) {
+    [self.repoFactory.apiService getStopsWithCallback:^(TFStopPointsResponse *response, NSError *error) {
         self.stops = response;
         [self.view refreshView];
     }];

@@ -1,14 +1,14 @@
-
 //
-//  TFStopsCollection.m
+//  TFStopPoint.h
 //  Train Finder
 //
 //  Created by Christie Davis on 4/08/19.
 //  Copyright © 2019 Christie-Davis. All rights reserved.
 //
 
-#import "TFStopsCollection.h"
+#import "MTLModel.h"
+#import <Overcoat/Overcoat.h>
 
-@implementation TFStopsCollection
+@interface TFStopPoint : MTLModel <MTLJSONSerializing>
 
 @end
