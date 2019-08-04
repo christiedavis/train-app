@@ -7,14 +7,11 @@
 //
 
 #import "TFStopPoint.h"
-#import "TFAdditionalProperties.h"
 
 @interface TFStopPoint()
 
 @property (strong, nonatomic) NSString* naptanId;
 @property (strong, nonatomic) NSString* stopType;
-@property (strong, nonatomic) NSString* commonName;
-@property (strong, nonatomic) NSArray<TFAdditionalProperties*>* additionalProperties;
 @property (strong, nonatomic) NSNumber* lat;
 @property (strong, nonatomic) NSNumber* lon;
 
@@ -32,6 +29,7 @@
              @"lon": @"lon"
              };
 }
+
 + (NSValueTransformer *)additionalPropertiesJSONTransformer {
     return [MTLJSONAdapter arrayTransformerWithModelClass: TFAdditionalProperties.class];
 }

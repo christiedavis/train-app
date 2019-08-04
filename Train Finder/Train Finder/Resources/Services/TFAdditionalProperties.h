@@ -11,4 +11,6 @@
 
 @interface TFAdditionalProperties : MTLModel <MTLJSONSerializing>
 
+@property (strong, nonatomic) NSString* category;
+
 @end

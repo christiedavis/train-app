@@ -6,9 +6,11 @@
 //  Copyright © 2019 Christie-Davis. All rights reserved.
 //
 
+
 #import "TFLandingPresenter.h"
 #import "TFRepositoryFactory.h"
 #import <CoreLocation/CoreLocation.h>
+#import "TFStationCell.h"
 
 @interface TFLandingPresenter()
 
@@ -85,11 +87,13 @@
 
 // MARK: Table View Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0; //self.stops.count;
+    return self.stops.stopPoints.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UITableViewCell alloc] init];
+    TFStationCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFStationCell reuseIdentifier]];
+    [cell setupWithStop: self.stops.stopPoints[indexPath.item]];
+    return cell;
 }
 
 
@@ -98,8 +102,5 @@
    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 0;
-}
 
 @end

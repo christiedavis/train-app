@@ -15,7 +15,6 @@
 //
 @interface TFAdditionalProperties()
 
-@property (strong, nonatomic) NSString* category;
 @property (strong, nonatomic) NSString* value;
 
 @end

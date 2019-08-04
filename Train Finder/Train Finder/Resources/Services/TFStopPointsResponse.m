@@ -11,8 +11,6 @@
 #import "TFStopPoint.h"
 @interface TFStopPointsResponse()
 
-@property (strong, nonatomic) NSArray<TFStopPoint*>* stopPoints;
-
 @end
 
 @implementation TFStopPointsResponse

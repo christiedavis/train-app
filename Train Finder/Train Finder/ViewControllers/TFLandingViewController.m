@@ -8,6 +8,8 @@
 
 #import "TFLandingViewController.h"
 
+#import "TFStationCell.h"
+
 @interface TFLandingViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -23,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.tableView registerNib: [UINib nibWithNibName: [TIResultImageCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TIResultImageCell reuseIdentifier]];
+    [self.tableView registerNib: [UINib nibWithNibName: [TFStationCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [TFStationCell reuseIdentifier]];
 //    [self.collectionView registerNib: [UINib nibWithNibName: [TILoadMoreCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TILoadMoreCell reuseIdentifier]];
     
     self.tableView.delegate = self.presenter;
@@ -31,10 +33,12 @@
     
     [self.presenter findMyLocation];
 
-//    [self showLoadingView];
+    [self hideErrorView];
+    [self showLoadingView];
 }
 
 - (void)refreshView {
+    [self hideLoadingView];
     [self.tableView reloadData];
 }
 
@@ -53,6 +57,11 @@
     [self hideLoadingView];
     [self.errorView setHidden: NO];
     [self.errorMessageLabel setText: message];
+}
+
+- (void)hideErrorView {
+    [self hideLoadingView];
+    [self.errorView setHidden: YES];
 }
 
 //- (void)presentImage:(TITweet*) tweet {

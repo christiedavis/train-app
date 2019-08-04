@@ -23,6 +23,10 @@
 		F58BAF6522F68A5C006E97DD /* TFStopPointsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6422F68A5C006E97DD /* TFStopPointsResponse.m */; };
 		F58BAF6922F6A5F0006E97DD /* TFStopPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6822F6A5F0006E97DD /* TFStopPoint.m */; };
 		F58BAF6C22F6A6EC006E97DD /* TFAdditionalProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6B22F6A6EC006E97DD /* TFAdditionalProperties.m */; };
+		F58BAF7122F6C315006E97DD /* TFStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6F22F6C315006E97DD /* TFStationCell.m */; };
+		F58BAF7222F6C315006E97DD /* TFStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58BAF7022F6C315006E97DD /* TFStationCell.xib */; };
+		F58BAF7622F6C9FC006E97DD /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF7422F6C9FC006E97DD /* CategoryCell.m */; };
+		F58BAF7722F6C9FC006E97DD /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,12 @@
 		F58BAF6822F6A5F0006E97DD /* TFStopPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFStopPoint.m; sourceTree = "<group>"; };
 		F58BAF6A22F6A6EC006E97DD /* TFAdditionalProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAdditionalProperties.h; sourceTree = "<group>"; };
 		F58BAF6B22F6A6EC006E97DD /* TFAdditionalProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAdditionalProperties.m; sourceTree = "<group>"; };
+		F58BAF6E22F6C315006E97DD /* TFStationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFStationCell.h; sourceTree = "<group>"; };
+		F58BAF6F22F6C315006E97DD /* TFStationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFStationCell.m; sourceTree = "<group>"; };
+		F58BAF7022F6C315006E97DD /* TFStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFStationCell.xib; sourceTree = "<group>"; };
+		F58BAF7322F6C9FC006E97DD /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		F58BAF7422F6C9FC006E97DD /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,7 @@
 		F5514F4422F6683D003F2AF7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F58BAF6D22F6C2F6006E97DD /* Cells */,
 				F5514F4E22F66957003F2AF7 /* TFLandingViewDelegate.h */,
 				F5514F4622F66867003F2AF7 /* TFLandingViewController.h */,
 				F5514F4722F66867003F2AF7 /* TFLandingViewController.m */,
@@ -205,6 +216,19 @@
 				F58BAF6B22F6A6EC006E97DD /* TFAdditionalProperties.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		F58BAF6D22F6C2F6006E97DD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F58BAF6E22F6C315006E97DD /* TFStationCell.h */,
+				F58BAF6F22F6C315006E97DD /* TFStationCell.m */,
+				F58BAF7022F6C315006E97DD /* TFStationCell.xib */,
+				F58BAF7322F6C9FC006E97DD /* CategoryCell.h */,
+				F58BAF7422F6C9FC006E97DD /* CategoryCell.m */,
+				F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +313,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58BAF7722F6C9FC006E97DD /* CategoryCell.xib in Resources */,
 				F5514F4A22F66867003F2AF7 /* TFLandingViewController.xib in Resources */,
 				F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */,
+				F58BAF7222F6C315006E97DD /* TFStationCell.xib in Resources */,
 				F5514F2A22F66805003F2AF7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +388,8 @@
 				F58BAF6922F6A5F0006E97DD /* TFStopPoint.m in Sources */,
 				F5514F5522F66DAA003F2AF7 /* TFAPIService.m in Sources */,
 				F58BAF6C22F6A6EC006E97DD /* TFAdditionalProperties.m in Sources */,
+				F58BAF7122F6C315006E97DD /* TFStationCell.m in Sources */,
+				F58BAF7622F6C9FC006E97DD /* CategoryCell.m in Sources */,
 				F5514F5B22F66DC4003F2AF7 /* TFRepositoryFactory.m in Sources */,
 				F58BAF6522F68A5C006E97DD /* TFStopPointsResponse.m in Sources */,
 				F5514F4922F66867003F2AF7 /* TFLandingViewController.m in Sources */,

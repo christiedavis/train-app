@@ -7,8 +7,11 @@
 //
 
 #import "MTLModel.h"
+#import "TFStopPoint.h"
 #import <Overcoat/Overcoat.h>
 
 @interface TFStopPointsResponse : MTLModel <MTLJSONSerializing>
+
+@property (strong, nonatomic) NSArray<TFStopPoint*>* stopPoints;
 
 @end
