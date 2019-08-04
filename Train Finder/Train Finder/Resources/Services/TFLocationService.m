@@ -11,12 +11,14 @@
 
 @interface TFLocationService()
 
-@property (weak, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) CLLocationManager* locationManager;
+
+@property (strong, nonatomic) LocationServicesCallback callback;
 
 @end
 
 @implementation TFLocationService
-
+// Also adding a landing screen that tells users why we want their location before jumping straight into the prompt would be better UX
 
 - (BOOL)shouldCheckPermission {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
@@ -31,19 +33,54 @@
 - (void)prepareToTrack {
     if (self.locationManager == nil) {
         CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDelegate: self];
         self.locationManager = locationManager;
+        [self.locationManager setDelegate: self];
+
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+        self.locationManager.pausesLocationUpdatesAutomatically = true;
+
+        if ([self shouldCheckPermission]) {
+            [self requestPermission];
+        } else {
+            [self.locationManager requestLocation];
+        }
     }
 }
 
 - (void)requestPermission {
-    [self prepareToTrack];
     [self.locationManager requestWhenInUseAuthorization];
 }
 
-- (void)getCurrentLocation {
+- (void)getCurrentLocationWithCallback:(void (^)(CLLocation *location, NSError *error))callback {
+    
+    self.callback = callback;
     [self prepareToTrack];
-    [self.locationManager requestLocation];
+
+}
+
+#pragma mark: LOCATION DELEGATE
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self.locationManager requestLocation];
+            
+        default:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    if (self.callback != nil) {
+        self.callback(locations.firstObject, nil);
+        self.callback = nil;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if (self.callback != nil) {
+        self.callback(nil, error);
+        self.callback = nil;
+    }
 }
 
 @end

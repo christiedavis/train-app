@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+
+typedef void(^LocationServicesCallback)(CLLocation *location, NSError *error);
+
 @interface TFLocationService : NSObject<CLLocationManagerDelegate>
 
-- (BOOL)shouldCheckPermission;
-- (void)requestPermission;
-- (CLLocation*)getCurrentLocation;
+- (void)getCurrentLocationWithCallback:(void (^)(CLLocation *location, NSError *error))callback;
 
 @end
 

@@ -14,9 +14,6 @@
 - (void)hideLoadingView;
 - (void)refreshView;
 
-- (void)activateTapGestureRecognizer;
-- (void)dismissKeyboard;
-
 //- (void)presentImage:(TITweet*) tweet;
 - (void)showErrorView:(NSString*) message;
 

@@ -8,15 +8,14 @@
 
 #import "TFLandingPresenter.h"
 #import "TFRepositoryFactory.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface TFLandingPresenter()
 
 @property (strong, nonatomic) TFRepositoryFactory* repoFactory;
-//@property (strong, nonatomic) TISearchMetaData* searchMetadata;
+@property (strong, nonatomic) CLLocation* lastRecordedLocation;
 
-//@property (strong, nonatomic) NSArray<TITweet*>* tweets;
-//@property (strong, nonatomic) NSString* hashTag;
-
+@property (strong, nonatomic) TFStopsCollection* stops;
 @end
 
 
@@ -29,14 +28,30 @@
     }
     
     self.repoFactory = [[TFRepositoryFactory alloc] init];
-//    self.tweets = @[];
-//    self.hashTag = @"lovewhereyouwork";
     return self;
 }
 
-//- (void)getImages {
-//    [self getImages: self.hashTag];
-//}
+- (void)findMyLocation {
+    [self.repoFactory.locationService getCurrentLocationWithCallback:^(CLLocation *location, NSError *error) {
+        
+        self.lastRecordedLocation = location;
+    
+        if (error) {
+            CLLocation *london = [[CLLocation alloc] initWithLatitude: 51.507711 longitude: -0.107712];
+            self.lastRecordedLocation = london;
+            NSLog(@"%@", error);
+        }
+        
+        [self getStops];
+    }];
+}
+
+- (void)getStops {
+    [self.repoFactory.apiService getStopsWithCallback:^(TFStopsCollection *response, NSError *error) {
+        self.stops = response;
+        [self.view refreshView];
+    }];
+}
 //
 //- (void)getImages: (NSString*)hashtag {
 //
@@ -70,7 +85,7 @@
 
 // MARK: Table View Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 0; //self.stops.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,21 +100,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 0;
-}
-
-// MARK: Search Bar Delegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-
-    [self.view dismissKeyboard];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.view dismissKeyboard];
-    
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [self.view activateTapGestureRecognizer];
 }
 
 @end

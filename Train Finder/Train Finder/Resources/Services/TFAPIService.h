@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Overcoat/Overcoat.h>
 
-@interface TFAPIService : NSObject
+#import "TFStopsCollection.h"
+
+@interface TFAPIService : OVCHTTPSessionManager
+- (void)getStopsWithCallback:(void (^)(TFStopsCollection *response, NSError *error))callback;
 
 @end

@@ -11,4 +11,6 @@
 
 @protocol TFLandingPresenterDelgate  <NSObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
+- (void)findMyLocation;
+
 @end

@@ -12,12 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loader;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) IBOutlet UIView *errorView;
 @property (strong, nonatomic) IBOutlet UILabel *errorMessageLabel;
-
-@property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 
 @end
 
@@ -32,9 +29,9 @@
     self.tableView.delegate = self.presenter;
     self.tableView.dataSource = self.presenter;
     
-    self.searchBar.delegate = self.presenter;
-    
-    [self showLoadingView];
+    [self.presenter findMyLocation];
+
+//    [self showLoadingView];
 }
 
 - (void)refreshView {
@@ -62,17 +59,5 @@
 //    
 //    [self.navigationController presentViewController: [[TIDetailViewController alloc] initWithTweet: tweet] animated: YES completion: nil];
 //}
-
-- (void)activateTapGestureRecognizer {
-    [self.tapGestureRecognizer setEnabled: YES];
-    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(dismissKeyboard)];
-    [self.view addGestureRecognizer: self.tapGestureRecognizer];
-}
-
-- (void)dismissKeyboard {
-    [self.searchBar resignFirstResponder];
-    [self.view removeGestureRecognizer: self.tapGestureRecognizer];
-    self.tapGestureRecognizer = nil;
-}
 
 @end
