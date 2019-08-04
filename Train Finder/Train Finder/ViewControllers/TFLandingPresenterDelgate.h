@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@protocol TFLandingPresenterDelgate <NSObject>
+@protocol TFLandingPresenterDelgate  <NSObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @end

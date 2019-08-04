@@ -10,23 +10,69 @@
 
 @interface TFLandingViewController ()
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loader;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) IBOutlet UIView *errorView;
+@property (strong, nonatomic) IBOutlet UILabel *errorMessageLabel;
+
+@property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+
 @end
 
 @implementation TFLandingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+//    [self.tableView registerNib: [UINib nibWithNibName: [TIResultImageCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TIResultImageCell reuseIdentifier]];
+//    [self.collectionView registerNib: [UINib nibWithNibName: [TILoadMoreCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TILoadMoreCell reuseIdentifier]];
+    
+    self.tableView.delegate = self.presenter;
+    self.tableView.dataSource = self.presenter;
+    
+    self.searchBar.delegate = self.presenter;
+    
+    [self showLoadingView];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)refreshView {
+    [self.tableView reloadData];
 }
-*/
+
+- (void)showLoadingView {
+    [self.loader setHidden: NO];
+    [self.loader startAnimating];
+    [self.errorView setHidden: YES];
+}
+
+- (void)hideLoadingView {
+    [self.loader setHidden: YES];
+    [self.loader stopAnimating];
+}
+
+- (void)showErrorView:(NSString*) message{
+    [self hideLoadingView];
+    [self.errorView setHidden: NO];
+    [self.errorMessageLabel setText: message];
+}
+
+//- (void)presentImage:(TITweet*) tweet {
+//    
+//    [self.navigationController presentViewController: [[TIDetailViewController alloc] initWithTweet: tweet] animated: YES completion: nil];
+//}
+
+- (void)activateTapGestureRecognizer {
+    [self.tapGestureRecognizer setEnabled: YES];
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(dismissKeyboard)];
+    [self.view addGestureRecognizer: self.tapGestureRecognizer];
+}
+
+- (void)dismissKeyboard {
+    [self.searchBar resignFirstResponder];
+    [self.view removeGestureRecognizer: self.tapGestureRecognizer];
+    self.tapGestureRecognizer = nil;
+}
 
 @end

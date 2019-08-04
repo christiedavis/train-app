@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C24647A2674887AA8E697F7 /* libPods-Train FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */; };
+		A5C98FC7F5278F75BB6206A0 /* libPods-Train Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */; };
 		F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F2122F66800003F2AF7 /* AppDelegate.m */; };
 		F5514F2A22F66805003F2AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2922F66805003F2AF7 /* Assets.xcassets */; };
 		F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2B22F66805003F2AF7 /* LaunchScreen.storyboard */; };
@@ -15,6 +17,9 @@
 		F5514F4922F66867003F2AF7 /* TFLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F4722F66867003F2AF7 /* TFLandingViewController.m */; };
 		F5514F4A22F66867003F2AF7 /* TFLandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5514F4822F66867003F2AF7 /* TFLandingViewController.xib */; };
 		F5514F4D22F66906003F2AF7 /* TFLandingPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F4C22F66906003F2AF7 /* TFLandingPresenter.m */; };
+		F5514F5522F66DAA003F2AF7 /* TFAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F5422F66DAA003F2AF7 /* TFAPIService.m */; };
+		F5514F5822F66DB5003F2AF7 /* TFLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F5722F66DB5003F2AF7 /* TFLocationService.m */; };
+		F5514F5B22F66DC4003F2AF7 /* TFRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F5A22F66DC4003F2AF7 /* TFRepositoryFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B376FD574E5D36A1540C704 /* Pods-Train FinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train FinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Train FinderTests/Pods-Train FinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Train Finder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A703B12E192A54DFC21382A /* Pods-Train Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Train Finder/Pods-Train Finder.debug.xcconfig"; sourceTree = "<group>"; };
+		436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Train FinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train Finder/Pods-Train Finder.release.xcconfig"; sourceTree = "<group>"; };
+		F0B34444EA1D5D7F873C9C22 /* Pods-Train FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train FinderTests/Pods-Train FinderTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5514F1D22F667FF003F2AF7 /* Train Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Train Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5514F2022F66800003F2AF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5514F2122F66800003F2AF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,6 +56,12 @@
 		F5514F4C22F66906003F2AF7 /* TFLandingPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFLandingPresenter.m; sourceTree = "<group>"; };
 		F5514F4E22F66957003F2AF7 /* TFLandingViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFLandingViewDelegate.h; sourceTree = "<group>"; };
 		F5514F5122F66970003F2AF7 /* TFLandingPresenterDelgate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFLandingPresenterDelgate.h; sourceTree = "<group>"; };
+		F5514F5322F66DAA003F2AF7 /* TFAPIService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAPIService.h; sourceTree = "<group>"; };
+		F5514F5422F66DAA003F2AF7 /* TFAPIService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAPIService.m; sourceTree = "<group>"; };
+		F5514F5622F66DB5003F2AF7 /* TFLocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFLocationService.h; sourceTree = "<group>"; };
+		F5514F5722F66DB5003F2AF7 /* TFLocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFLocationService.m; sourceTree = "<group>"; };
+		F5514F5922F66DC4003F2AF7 /* TFRepositoryFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFRepositoryFactory.h; sourceTree = "<group>"; };
+		F5514F5A22F66DC4003F2AF7 /* TFRepositoryFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFRepositoryFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C98FC7F5278F75BB6206A0 /* libPods-Train Finder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,18 +77,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C24647A2674887AA8E697F7 /* libPods-Train FinderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E496F71680BD84230DB17F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */,
+				436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82754EB92F0876E35DCC05E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A703B12E192A54DFC21382A /* Pods-Train Finder.debug.xcconfig */,
+				DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */,
+				0B376FD574E5D36A1540C704 /* Pods-Train FinderTests.debug.xcconfig */,
+				F0B34444EA1D5D7F873C9C22 /* Pods-Train FinderTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F5514F1422F667FF003F2AF7 = {
 			isa = PBXGroup;
 			children = (
 				F5514F1F22F667FF003F2AF7 /* Train Finder */,
 				F5514F3822F66805003F2AF7 /* Train FinderTests */,
 				F5514F1E22F667FF003F2AF7 /* Products */,
+				82754EB92F0876E35DCC05E9 /* Pods */,
+				1E496F71680BD84230DB17F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +127,7 @@
 		F5514F1F22F667FF003F2AF7 /* Train Finder */ = {
 			isa = PBXGroup;
 			children = (
+				F5514F5222F66D8A003F2AF7 /* Services */,
 				F5514F4522F66851003F2AF7 /* Resources */,
 				F5514F4422F6683D003F2AF7 /* ViewControllers */,
 			);
@@ -128,6 +170,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F5514F5222F66D8A003F2AF7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F5514F5922F66DC4003F2AF7 /* TFRepositoryFactory.h */,
+				F5514F5A22F66DC4003F2AF7 /* TFRepositoryFactory.m */,
+				F5514F5322F66DAA003F2AF7 /* TFAPIService.h */,
+				F5514F5422F66DAA003F2AF7 /* TFAPIService.m */,
+				F5514F5622F66DB5003F2AF7 /* TFLocationService.h */,
+				F5514F5722F66DB5003F2AF7 /* TFLocationService.m */,
+			);
+			name = Services;
+			path = Resources/Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5514F3E22F66805003F2AF7 /* Build configuration list for PBXNativeTarget "Train Finder" */;
 			buildPhases = (
+				C1A3E925B09507185BE0AE8E /* [CP] Check Pods Manifest.lock */,
 				F5514F1922F667FF003F2AF7 /* Sources */,
 				F5514F1A22F667FF003F2AF7 /* Frameworks */,
 				F5514F1B22F667FF003F2AF7 /* Resources */,
@@ -152,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5514F4122F66805003F2AF7 /* Build configuration list for PBXNativeTarget "Train FinderTests" */;
 			buildPhases = (
+				39C59BBBC2E6CDB56568D5F8 /* [CP] Check Pods Manifest.lock */,
 				F5514F3122F66805003F2AF7 /* Sources */,
 				F5514F3222F66805003F2AF7 /* Frameworks */,
 				F5514F3322F66805003F2AF7 /* Resources */,
@@ -223,13 +281,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		39C59BBBC2E6CDB56568D5F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Train FinderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1A3E925B09507185BE0AE8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Train Finder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F5514F1922F667FF003F2AF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5514F5822F66DB5003F2AF7 /* TFLocationService.m in Sources */,
 				F5514F3022F66805003F2AF7 /* main.m in Sources */,
 				F5514F4D22F66906003F2AF7 /* TFLandingPresenter.m in Sources */,
+				F5514F5522F66DAA003F2AF7 /* TFAPIService.m in Sources */,
+				F5514F5B22F66DC4003F2AF7 /* TFRepositoryFactory.m in Sources */,
 				F5514F4922F66867003F2AF7 /* TFLandingViewController.m in Sources */,
 				F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */,
 			);
@@ -379,6 +487,7 @@
 		};
 		F5514F3F22F66805003F2AF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A703B12E192A54DFC21382A /* Pods-Train Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +505,7 @@
 		};
 		F5514F4022F66805003F2AF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -413,6 +523,7 @@
 		};
 		F5514F4222F66805003F2AF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B376FD574E5D36A1540C704 /* Pods-Train FinderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -432,6 +543,7 @@
 		};
 		F5514F4322F66805003F2AF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0B34444EA1D5D7F873C9C22 /* Pods-Train FinderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
