@@ -9,6 +9,7 @@
 #import "TFStationCell.h"
 #import "CategoryCell.h"
 #import "TFStopPoint.h"
+#import "TFAdditionalProperties.h"
 
 @interface TFStationCell()
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) TFStopPoint *stopPoint;
+@property (strong, nonatomic) NSArray<TFAdditionalProperties*>* features;
 
 @end
 
@@ -34,13 +36,23 @@
     [self.collectionView registerNib: [UINib nibWithNibName: [CategoryCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [CategoryCell reuseIdentifier]];
 }
 
-- (void)setupWithStop:(TFStopPoint*) stopPoint {
+- (void)setupWithStop: (TFStopPoint*) stopPoint {
     [self.stationName setText: stopPoint.commonName];
     self.stopPoint = stopPoint;
+    
+    NSMutableArray<TFAdditionalProperties*>* validFeatures = [[NSMutableArray alloc] init];
+    
+    for (TFAdditionalProperties *feature in stopPoint.additionalProperties) {
+        if ([feature.category isEqualToString: @"category"]) {
+            [validFeatures addObject: feature];
+        }
+    }
+    self.features = validFeatures;
+    [self.collectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return self.features.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -48,6 +60,8 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [CategoryCell reuseIdentifier] forIndexPath: indexPath];
+    [cell setup: self.features[indexPath.item]];
     return [[UICollectionViewCell alloc] init];
 }
 

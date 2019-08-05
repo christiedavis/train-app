@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TFAdditionalProperties.h"
 
 @interface CategoryCell : UICollectionViewCell
 
 + (NSString*)reuseIdentifier;
+- (void)setup:(TFAdditionalProperties*) property;
 
 @end
 

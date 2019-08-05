@@ -15,8 +15,6 @@
 //
 @interface TFAdditionalProperties()
 
-@property (strong, nonatomic) NSString* value;
-
 @end
 
 @implementation TFAdditionalProperties

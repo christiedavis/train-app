@@ -8,15 +8,21 @@
 
 #import "CategoryCell.h"
 
+@interface CategoryCell()
+
+@property (strong, nonatomic) IBOutlet UILabel *textLabel;
+
+@end
+
 @implementation CategoryCell
 
 + (NSString*)reuseIdentifier {
     return @"CategoryCell";
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setup:(TFAdditionalProperties*) property {
+    [self.textLabel setText: property.value];
 }
+
 
 @end
