@@ -21,7 +21,22 @@
 }
 
 - (void)setup:(TFAdditionalProperties*) property {
-    [self.textLabel setText: property.value];
+    [self.textLabel setText: property.key];
+}
+
++ (CGFloat)cellHeight {
+    return 40;
+}
+
++ (CGSize)sizeWithText: (NSString*) text withMaxWidth: (CGFloat) maxWidth {
+    
+    CGSize constraintRect = CGSizeMake(maxWidth, 40.0);
+    UIFont* font = [UIFont systemFontOfSize: 14.0];
+
+    CGRect boundingBox = [text boundingRectWithSize: constraintRect options: NSStringDrawingUsesLineFragmentOrigin attributes: @{ NSFontAttributeName : font } context: nil];
+    
+    CGSize cellSize = CGSizeMake(boundingBox.size.width + 16, 44);
+    return cellSize;
 }
 
 

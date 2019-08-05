@@ -27,27 +27,31 @@
     return @"TFStationCell";
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
+- (void)setup {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
     [self.collectionView registerNib: [UINib nibWithNibName: [CategoryCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [CategoryCell reuseIdentifier]];
+    
 }
 
 - (void)setupWithStop: (TFStopPoint*) stopPoint {
+    [self setup];
     [self.stationName setText: stopPoint.commonName];
     self.stopPoint = stopPoint;
     
     NSMutableArray<TFAdditionalProperties*>* validFeatures = [[NSMutableArray alloc] init];
     
     for (TFAdditionalProperties *feature in stopPoint.additionalProperties) {
-        if ([feature.category isEqualToString: @"category"]) {
+        if ([feature.category isEqualToString: @"Facility"]) {
+            NSLog(feature.value);
+            
             [validFeatures addObject: feature];
+
         }
     }
     self.features = validFeatures;
+   
     [self.collectionView reloadData];
 }
 
@@ -62,7 +66,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [CategoryCell reuseIdentifier] forIndexPath: indexPath];
     [cell setup: self.features[indexPath.item]];
-    return [[UICollectionViewCell alloc] init];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [CategoryCell sizeWithText: self.features[indexPath.item].key withMaxWidth: [UIScreen mainScreen].bounds.size.width - 12];
 }
 
 @end

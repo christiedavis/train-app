@@ -1,4 +1,4 @@
-//
+//x
 //  CategoryCell.h
 //  Train Finder
 //
@@ -13,6 +13,7 @@
 
 + (NSString*)reuseIdentifier;
 - (void)setup:(TFAdditionalProperties*) property;
++ (CGSize)sizeWithText: (NSString*) text withMaxWidth: (CGFloat) maxWidth;
 
 @end
 

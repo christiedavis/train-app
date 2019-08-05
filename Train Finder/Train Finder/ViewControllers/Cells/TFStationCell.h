@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TFStopPoint.h"
 
-@interface TFStationCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface TFStationCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 + (NSString*)reuseIdentifier;
 

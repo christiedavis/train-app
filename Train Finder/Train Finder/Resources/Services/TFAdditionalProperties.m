@@ -22,7 +22,8 @@
 + (NSDictionary*)JSONKeyPathsByPropertyKey {
     return @{
              @"category": @"category",
-             @"value": @"value"
+             @"value": @"value",
+             @"key": @"key"
              };
 }
 
