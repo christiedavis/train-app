@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TFFacilitySelectionDelegate.h"
 
-@protocol TFLandingPresenterDelgate  <NSObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@protocol TFLandingPresenterDelgate  <NSObject, UITableViewDelegate, UITableViewDataSource, TFFacilitySelectionDelegate>
 
 - (void)findMyLocation;
 

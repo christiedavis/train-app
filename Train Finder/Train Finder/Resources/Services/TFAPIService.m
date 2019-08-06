@@ -14,14 +14,20 @@ NSString *const apiAppId = @"48a39fc4";
 NSString *const apiKey = @"ec618983d8e46a7c7e7845bb84e07f22";
 NSString *const baseUrl = @"https://api.tfl.gov.uk/";
 NSString *const stopsUrl = @"StopPoint";
-NSString *const stopTypes = @"NaptanMetroStation";
+NSString *const arrivalsUrl = @"Arrivals";
+NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
+
+//https://api.tfl.gov.uk/Stoppoint?app_id=[app_id]&radius=1000&modes=tube&app_key=[app_key]&lon=[lon]&lat=[lat]&stoptypes=NaptanMetroStation,NaptanRailStation
+
+//https://api.tfl.gov.uk/StopPoint/[naptan_id]/Arrivals?modes=tube&app_id=[app_id]&app_key=[app_key]
 
 - (void)getStopsForLat: (NSString*) lat andlon: (NSString*) lon WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback {
     
     NSDictionary* parameters = @{
-                                 @"radius": @"2000",
+                                 @"radius": @"1000",
                                  @"lat": lat,
                                  @"lon": lon,
+                                 @"modes": @"tube",
                                  @"app_id": apiAppId,
                                  @"app_key": apiKey,
                                  @"stopTypes": stopTypes
@@ -39,13 +45,31 @@ NSString *const stopTypes = @"NaptanMetroStation";
       }];
 }
 
+- (void)getArrivalsFor: (NSString*) naptanId WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback {
+    NSDictionary* parameters = @{
+                                 @"modes": @"tube",
+                                 @"app_id": apiAppId,
+                                 @"app_key": apiKey
+                                 };
+    
+    [self GET:[NSString stringWithFormat: @"%@%@/%@/%@", baseUrl, stopsUrl, naptanId, arrivalsUrl]
+   parameters:parameters
+      success:^(NSURLSessionDataTask * _Nonnull task, OVCResponse* responseObject) {
+          NSLog(@"yay");
+          
+          callback(responseObject.result, nil);
+      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          NSLog(@"Boo");
+          callback(nil, error);
+      }];
+}
+
+
 #pragma mark - Subclass overrides
 + (NSDictionary<NSString *, Class> *)modelClassesByResourcePath {
     return @{
              stopsUrl: TFStopPointsResponse.class,
              };
 }
-
-
 
 @end

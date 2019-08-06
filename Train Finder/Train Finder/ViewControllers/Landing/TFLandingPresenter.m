@@ -87,13 +87,12 @@ double const ukDefaultLat = 51.507711;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TFStationCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFStationCell reuseIdentifier]];
-    [cell setupWithStop: self.stops.stopPoints[indexPath.item]];
+    [cell setupWithStop: self.stops.stopPoints[indexPath.item] andDelegate: self];
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-   
+- (void)facilitySelected:(TFAdditionalProperties *)facility {
+    
 }
-
 
 @end

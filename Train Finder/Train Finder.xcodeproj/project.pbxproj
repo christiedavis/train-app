@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2C24647A2674887AA8E697F7 /* libPods-Train FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */; };
 		A5C98FC7F5278F75BB6206A0 /* libPods-Train Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */; };
+		F54F2F6B22FA3FE000084F24 /* TFFacilityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */; };
+		F54F2F6C22FA3FE000084F24 /* TFFacilityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */; };
+		F54F2F6F22FA3FF400084F24 /* TFFacilityPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */; };
 		F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F2122F66800003F2AF7 /* AppDelegate.m */; };
 		F5514F2A22F66805003F2AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2922F66805003F2AF7 /* Assets.xcassets */; };
 		F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2B22F66805003F2AF7 /* LaunchScreen.storyboard */; };
@@ -46,6 +49,14 @@
 		436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Train FinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train Finder/Pods-Train Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F0B34444EA1D5D7F873C9C22 /* Pods-Train FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train FinderTests/Pods-Train FinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		F54F2F6522FA3D5F00084F24 /* TFFacilitySelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilitySelectionDelegate.h; sourceTree = "<group>"; };
+		F54F2F6822FA3FE000084F24 /* TFFacilityDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityDetailViewController.h; sourceTree = "<group>"; };
+		F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFFacilityDetailViewController.m; sourceTree = "<group>"; };
+		F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFFacilityDetailViewController.xib; sourceTree = "<group>"; };
+		F54F2F6D22FA3FF400084F24 /* TFFacilityPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityPresenter.h; sourceTree = "<group>"; };
+		F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFFacilityPresenter.m; sourceTree = "<group>"; };
+		F54F2F7022FA457D00084F24 /* TFFacilityDetailViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityDetailViewDelegate.h; sourceTree = "<group>"; };
+		F54F2F7122FA46D700084F24 /* TFFacilityPresenterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityPresenterDelegate.h; sourceTree = "<group>"; };
 		F5514F1D22F667FF003F2AF7 /* Train Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Train Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5514F2022F66800003F2AF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5514F2122F66800003F2AF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +134,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F54F2F6622FA3F6100084F24 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				F54F2F6722FA3F7000084F24 /* Facility Detail */,
+				F5514F4E22F66957003F2AF7 /* TFLandingViewDelegate.h */,
+				F5514F4622F66867003F2AF7 /* TFLandingViewController.h */,
+				F5514F4722F66867003F2AF7 /* TFLandingViewController.m */,
+				F5514F4822F66867003F2AF7 /* TFLandingViewController.xib */,
+				F5514F5122F66970003F2AF7 /* TFLandingPresenterDelgate.h */,
+				F5514F4B22F66906003F2AF7 /* TFLandingPresenter.h */,
+				F5514F4C22F66906003F2AF7 /* TFLandingPresenter.m */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		F54F2F6722FA3F7000084F24 /* Facility Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F54F2F7022FA457D00084F24 /* TFFacilityDetailViewDelegate.h */,
+				F54F2F6822FA3FE000084F24 /* TFFacilityDetailViewController.h */,
+				F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */,
+				F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */,
+				F54F2F7122FA46D700084F24 /* TFFacilityPresenterDelegate.h */,
+				F54F2F6D22FA3FF400084F24 /* TFFacilityPresenter.h */,
+				F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */,
+			);
+			path = "Facility Detail";
+			sourceTree = "<group>";
+		};
 		F5514F1422F667FF003F2AF7 = {
 			isa = PBXGroup;
 			children = (
@@ -165,14 +205,8 @@
 		F5514F4422F6683D003F2AF7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F54F2F6622FA3F6100084F24 /* Landing */,
 				F58BAF6D22F6C2F6006E97DD /* Cells */,
-				F5514F4E22F66957003F2AF7 /* TFLandingViewDelegate.h */,
-				F5514F4622F66867003F2AF7 /* TFLandingViewController.h */,
-				F5514F4722F66867003F2AF7 /* TFLandingViewController.m */,
-				F5514F4822F66867003F2AF7 /* TFLandingViewController.xib */,
-				F5514F5122F66970003F2AF7 /* TFLandingPresenterDelgate.h */,
-				F5514F4B22F66906003F2AF7 /* TFLandingPresenter.h */,
-				F5514F4C22F66906003F2AF7 /* TFLandingPresenter.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -227,6 +261,7 @@
 				F58BAF7322F6C9FC006E97DD /* CategoryCell.h */,
 				F58BAF7422F6C9FC006E97DD /* CategoryCell.m */,
 				F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */,
+				F54F2F6522FA3D5F00084F24 /* TFFacilitySelectionDelegate.h */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -313,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54F2F6C22FA3FE000084F24 /* TFFacilityDetailViewController.xib in Resources */,
 				F58BAF7722F6C9FC006E97DD /* CategoryCell.xib in Resources */,
 				F5514F4A22F66867003F2AF7 /* TFLandingViewController.xib in Resources */,
 				F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */,
@@ -383,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5514F5822F66DB5003F2AF7 /* TFLocationService.m in Sources */,
+				F54F2F6F22FA3FF400084F24 /* TFFacilityPresenter.m in Sources */,
 				F5514F3022F66805003F2AF7 /* main.m in Sources */,
 				F5514F4D22F66906003F2AF7 /* TFLandingPresenter.m in Sources */,
 				F58BAF6922F6A5F0006E97DD /* TFStopPoint.m in Sources */,
@@ -391,6 +428,7 @@
 				F58BAF7122F6C315006E97DD /* TFStationCell.m in Sources */,
 				F58BAF7622F6C9FC006E97DD /* CategoryCell.m in Sources */,
 				F5514F5B22F66DC4003F2AF7 /* TFRepositoryFactory.m in Sources */,
+				F54F2F6B22FA3FE000084F24 /* TFFacilityDetailViewController.m in Sources */,
 				F58BAF6522F68A5C006E97DD /* TFStopPointsResponse.m in Sources */,
 				F5514F4922F66867003F2AF7 /* TFLandingViewController.m in Sources */,
 				F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */,

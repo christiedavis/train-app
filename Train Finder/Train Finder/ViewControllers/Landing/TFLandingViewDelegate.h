@@ -14,7 +14,6 @@
 - (void)hideLoadingView;
 - (void)refreshView;
 
-//- (void)presentImage:(TITweet*) tweet;
 - (void)showErrorView:(NSString*) message;
 
 @end

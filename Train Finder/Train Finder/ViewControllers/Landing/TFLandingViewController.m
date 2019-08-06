@@ -7,6 +7,7 @@
 //
 
 #import "TFLandingViewController.h"
+#import "TFFacilityDetailViewController.h"
 
 #import "TFStationCell.h"
 
@@ -64,9 +65,8 @@
     [self.errorView setHidden: YES];
 }
 
-//- (void)presentImage:(TITweet*) tweet {
-//    
-//    [self.navigationController presentViewController: [[TIDetailViewController alloc] initWithTweet: tweet] animated: YES completion: nil];
-//}
+- (void)presentFacility:(TFAdditionalProperties*) properties {
+    [self.navigationController presentViewController: [[TFFacilityDetailViewController alloc] initWithFacility: properties] animated: YES completion: nil];
+}
 
 @end

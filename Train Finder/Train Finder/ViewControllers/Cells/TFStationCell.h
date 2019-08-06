@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TFStopPoint.h"
+#import "TFFacilitySelectionDelegate.h"
 
 @interface TFStationCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 + (NSString*)reuseIdentifier;
 
-- (void)setupWithStop:(TFStopPoint*) stopPoint;
+- (void)setupWithStop: (TFStopPoint*) stopPoint andDelegate: (id<TFFacilitySelectionDelegate>) selectionDelegate;
 
 @end

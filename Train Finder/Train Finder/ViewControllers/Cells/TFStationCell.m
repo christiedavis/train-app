@@ -9,7 +9,6 @@
 #import "TFStationCell.h"
 #import "CategoryCell.h"
 #import "TFStopPoint.h"
-#import "TFAdditionalProperties.h"
 
 @interface TFStationCell()
 
@@ -18,6 +17,8 @@
 
 @property (strong, nonatomic) TFStopPoint *stopPoint;
 @property (strong, nonatomic) NSArray<TFAdditionalProperties*>* features;
+
+@property (weak, nonatomic) id<TFFacilitySelectionDelegate> selectionDelegate;
 
 @end
 
@@ -35,19 +36,17 @@
     
 }
 
-- (void)setupWithStop: (TFStopPoint*) stopPoint {
+- (void)setupWithStop: (TFStopPoint*) stopPoint andDelegate: (id<TFFacilitySelectionDelegate>) selectionDelegate {
     [self setup];
     [self.stationName setText: stopPoint.commonName];
     self.stopPoint = stopPoint;
+    self.selectionDelegate = selectionDelegate;
     
     NSMutableArray<TFAdditionalProperties*>* validFeatures = [[NSMutableArray alloc] init];
     
     for (TFAdditionalProperties *feature in stopPoint.additionalProperties) {
         if ([feature.category isEqualToString: @"Facility"]) {
-            NSLog(feature.value);
-            
             [validFeatures addObject: feature];
-
         }
     }
     self.features = validFeatures;
@@ -71,6 +70,10 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [CategoryCell sizeWithText: self.features[indexPath.item].key withMaxWidth: [UIScreen mainScreen].bounds.size.width - 12];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.selectionDelegate facilitySelected: self.features[indexPath.item]];
 }
 
 @end
