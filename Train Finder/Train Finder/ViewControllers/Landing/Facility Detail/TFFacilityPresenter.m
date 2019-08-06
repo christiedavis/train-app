@@ -8,6 +8,14 @@
 
 #import "TFFacilityPresenter.h"
 
+@interface TFFacilityPresenter()
+@property (weak, nonatomic) TFAdditionalProperties* facility;
+@end
+
 @implementation TFFacilityPresenter
+
+- (void)setFacility:(TFAdditionalProperties *)facility {
+    self.facility = facility;
+}
 
 @end
