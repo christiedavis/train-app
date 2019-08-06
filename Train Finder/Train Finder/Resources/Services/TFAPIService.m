@@ -13,21 +13,18 @@
 NSString *const apiAppId = @"48a39fc4";
 NSString *const apiKey = @"ec618983d8e46a7c7e7845bb84e07f22";
 NSString *const baseUrl = @"https://api.tfl.gov.uk/";
-NSString *const stopsUrl = @"StopPoint/Mode/tube";
+NSString *const stopsUrl = @"StopPoint";
+NSString *const stopTypes = @"NaptanMetroStation";
 
-- (void)getStopsWithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback {
-    
-//    
-//    Cargo Works, 1-2 Hatfields, South Bank, London SE1 9PG, UK
-//    51.507711, -0.107712
+- (void)getStopsForLat: (NSString*) lat andlon: (NSString*) lon WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback {
     
     NSDictionary* parameters = @{
-                                 @"radius": @"200",
-                                 @"location.lat": @"51.507711",
-                                 @"location.lon": @"-0.107712",
-                                 @"app_id": @"48a39fc4",
-                                 @"app_key": @"ec618983d8e46a7c7e7845bb84e07f22",
-                                 @"stopTypes": @[@"NaptanRailStation", @"NaptanMetroStation"]
+                                 @"radius": @"2000",
+                                 @"lat": lat,
+                                 @"lon": lon,
+                                 @"app_id": apiAppId,
+                                 @"app_key": apiKey,
+                                 @"stopTypes": stopTypes
                                  };
     
     [self GET:[NSString stringWithFormat: @"%@%@", baseUrl, stopsUrl]

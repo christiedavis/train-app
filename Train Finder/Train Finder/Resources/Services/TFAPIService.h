@@ -12,6 +12,6 @@
 #import "TFStopPointsResponse.h"
 
 @interface TFAPIService : OVCHTTPSessionManager
-- (void)getStopsWithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback;
+- (void)getStopsForLat: (NSString*) lat andlon: (NSString*) lon WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback;
 
 @end

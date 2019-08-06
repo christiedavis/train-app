@@ -544,8 +544,8 @@
 			baseConfigurationReference = 3A703B12E192A54DFC21382A /* Pods-Train Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RU5SGBJGGX;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 77B4XKLPCN;
 				INFOPLIST_FILE = "Train Finder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -553,6 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.davis.christie.Train-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Personal Dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -562,8 +563,8 @@
 			baseConfigurationReference = DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RU5SGBJGGX;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 77B4XKLPCN;
 				INFOPLIST_FILE = "Train Finder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,6 +572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.davis.christie.Train-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Personal Dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

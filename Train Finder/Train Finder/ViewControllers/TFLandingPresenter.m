@@ -23,6 +23,15 @@
 
 @implementation TFLandingPresenter
 
+double const ukMinLattitude = 49.9;
+double const ukMaxLattitude = 58.7;
+double const ukMinLongitude = -11.05;
+double const ukMaxLongitude = 1.78;
+double const ukDefaultLong = -0.107712;
+double const ukDefaultLat = 51.507711;
+
+
+
 - (instancetype)init {
     self = [super init];
     if (!self) {
@@ -39,51 +48,37 @@
         self.lastRecordedLocation = location;
     
         if (error) {
-            CLLocation *london = [[CLLocation alloc] initWithLatitude: 51.507711 longitude: -0.107712];
+            
+            CLLocation *london = [[CLLocation alloc] initWithLatitude: ukDefaultLat longitude: ukDefaultLong];
             self.lastRecordedLocation = london;
             NSLog(@"%@", error);
         }
         
-        [self getStops];
+        self.lastRecordedLocation = [self processLocation: self.lastRecordedLocation ];
+        
+        [self getStopsForLocation: self.lastRecordedLocation];
     }];
 }
 
-- (void)getStops {
-    [self.repoFactory.apiService getStopsWithCallback:^(TFStopPointsResponse *response, NSError *error) {
+// takes a location and ensures it is in london
+- (CLLocation*)processLocation:(CLLocation*) location {
+    if (location.coordinate.latitude < ukMinLattitude || location.coordinate.latitude > ukMaxLattitude || location.coordinate.longitude < ukMinLongitude || location.coordinate.longitude > ukMaxLongitude) {
+        // check lattitude is in the UK else return default
+        return [[CLLocation alloc] initWithLatitude: ukDefaultLat longitude: ukDefaultLong];
+    }
+    return location;
+}
+
+- (void)getStopsForLocation:(CLLocation*) location {
+    
+    NSString *longString = [NSString stringWithFormat: @"%f", location.coordinate.longitude];
+    NSString *latString = [NSString stringWithFormat: @"%f", location.coordinate.latitude];
+    
+    [self.repoFactory.apiService getStopsForLat: latString andlon: longString WithCallback:^(TFStopPointsResponse *response, NSError *error) {
         self.stops = response;
         [self.view refreshView];
     }];
 }
-//
-//- (void)getImages: (NSString*)hashtag {
-//
-//    if (hashtag.length > 0) {
-//        self.hashTag = [hashtag stringByReplacingOccurrencesOfString: @"#" withString: @""];
-//    }
-//
-//    [self.service getImagesWithHashtag: self.hashTag Callback:^(TITweetSearchResponse *response, NSError *error) {
-//        if (error) {
-//            [self.view showErrorView: @"Error: loading of images failed"];
-//
-//        } else {
-//
-//            NSMutableArray *tempTweetArray = [[NSMutableArray alloc] init];
-//
-//            for (TITweet *tweet in response.statuses) {
-//                if ([tweet isValidTweet]) {
-//                    [tempTweetArray addObject: tweet];
-//                    NSLog(@"%@: %@", tweet.user.screenName, [tweet.extendedEntities.media[0] mediaUrl]);
-//
-//                }
-//            }
-//            self.tweets = tempTweetArray;
-//            self.searchMetadata = response.searchMetaData;
-//
-//            [self.view refreshView];
-//            [self.view hideLoadingView];
-//        }
-//    }];
-//}
 
 // MARK: Table View Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,8 +90,6 @@
     [cell setupWithStop: self.stops.stopPoints[indexPath.item]];
     return cell;
 }
-
-
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
    
