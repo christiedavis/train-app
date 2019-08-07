@@ -12,24 +12,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="KGk-i7-Jjw" customClass="TFStationCell">
-            <rect key="frame" x="0.0" y="0.0" width="365" height="181"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="209" id="KGk-i7-Jjw" customClass="TFStationCell">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="209"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="365" height="180.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="365" height="208.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WW-Ag-OC4">
-                        <rect key="frame" x="20" y="12" width="110.5" height="12.5"/>
+                        <rect key="frame" x="20" y="12" width="110.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dAB-2M-44p">
-                        <rect key="frame" x="12" y="36.5" width="341" height="132"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="16" y="61.5" width="333" height="135"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="132" id="Eu9-lw-vMj"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="99" id="Eu9-lw-vMj"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="H1X-oT-b1h">
                             <size key="itemSize" width="50" height="50"/>
@@ -38,15 +38,24 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Included Facilities:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj3-kr-bDL">
+                        <rect key="frame" x="16" y="44.5" width="123" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="3WW-Ag-OC4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="GFN-Rj-xlx"/>
-                    <constraint firstItem="dAB-2M-44p" firstAttribute="top" secondItem="3WW-Ag-OC4" secondAttribute="bottom" constant="12" id="K4y-au-Dpo"/>
+                    <constraint firstItem="fj3-kr-bDL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TQF-5w-lGb"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3WW-Ag-OC4" secondAttribute="trailing" constant="12" id="XU2-jm-nlf"/>
                     <constraint firstItem="3WW-Ag-OC4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="btX-Bz-VkS"/>
-                    <constraint firstAttribute="trailing" secondItem="dAB-2M-44p" secondAttribute="trailing" constant="12" id="fdF-wW-WM1"/>
+                    <constraint firstItem="dAB-2M-44p" firstAttribute="top" secondItem="fj3-kr-bDL" secondAttribute="bottom" id="fak-FB-sNQ"/>
+                    <constraint firstAttribute="trailing" secondItem="dAB-2M-44p" secondAttribute="trailing" constant="16" id="fdF-wW-WM1"/>
                     <constraint firstAttribute="bottom" secondItem="dAB-2M-44p" secondAttribute="bottom" constant="12" id="mYp-1e-Eq2"/>
-                    <constraint firstItem="dAB-2M-44p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="oBE-Ub-X3t"/>
+                    <constraint firstItem="dAB-2M-44p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="oBE-Ub-X3t"/>
+                    <constraint firstItem="fj3-kr-bDL" firstAttribute="top" secondItem="3WW-Ag-OC4" secondAttribute="bottom" constant="12" id="u6B-gg-c6c"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
@@ -55,7 +64,7 @@
                 <outlet property="collectionView" destination="dAB-2M-44p" id="nZM-MP-XZS"/>
                 <outlet property="stationName" destination="3WW-Ag-OC4" id="R7p-sS-ePV"/>
             </connections>
-            <point key="canvasLocation" x="248.55072463768118" y="113.50446428571428"/>
+            <point key="canvasLocation" x="248.55072463768118" y="122.87946428571428"/>
         </tableViewCell>
     </objects>
 </document>
