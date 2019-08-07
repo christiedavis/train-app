@@ -10,6 +10,7 @@
 
 @interface CategoryCell()
 
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
@@ -21,21 +22,22 @@
 }
 
 - (void)setup:(TFAdditionalProperties*) property {
-    [self.textLabel setText: property.key];
-}
-
-+ (CGFloat)cellHeight {
-    return 40;
+    NSString *dipslayString = property.key;
+    
+    [dipslayString stringByTrimmingCharactersInSet: NSCharacterSet.whitespaceAndNewlineCharacterSet];
+    
+    [self.textLabel setText: dipslayString];
+    self.containerView.layer.cornerRadius = 3;
 }
 
 + (CGSize)sizeWithText: (NSString*) text withMaxWidth: (CGFloat) maxWidth {
     
-    CGSize constraintRect = CGSizeMake(maxWidth, 40.0);
-    UIFont* font = [UIFont systemFontOfSize: 14.0];
+    CGSize constraintRect = CGSizeMake(maxWidth, 33.0);
+    UIFont* font = [UIFont systemFontOfSize: 16.0];
 
     CGRect boundingBox = [text boundingRectWithSize: constraintRect options: NSStringDrawingUsesLineFragmentOrigin attributes: @{ NSFontAttributeName : font } context: nil];
     
-    CGSize cellSize = CGSizeMake(boundingBox.size.width + 16, 44);
+    CGSize cellSize = CGSizeMake(boundingBox.size.width + 14, 33);
     return cellSize;
 }
 
