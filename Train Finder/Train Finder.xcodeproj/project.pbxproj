@@ -11,7 +11,6 @@
 		A5C98FC7F5278F75BB6206A0 /* libPods-Train Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */; };
 		F54F2F6B22FA3FE000084F24 /* TFFacilityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */; };
 		F54F2F6C22FA3FE000084F24 /* TFFacilityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */; };
-		F54F2F6F22FA3FF400084F24 /* TFFacilityPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */; };
 		F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F2122F66800003F2AF7 /* AppDelegate.m */; };
 		F5514F2A22F66805003F2AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2922F66805003F2AF7 /* Assets.xcassets */; };
 		F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5514F2B22F66805003F2AF7 /* LaunchScreen.storyboard */; };
@@ -53,10 +52,6 @@
 		F54F2F6822FA3FE000084F24 /* TFFacilityDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityDetailViewController.h; sourceTree = "<group>"; };
 		F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFFacilityDetailViewController.m; sourceTree = "<group>"; };
 		F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFFacilityDetailViewController.xib; sourceTree = "<group>"; };
-		F54F2F6D22FA3FF400084F24 /* TFFacilityPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityPresenter.h; sourceTree = "<group>"; };
-		F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFFacilityPresenter.m; sourceTree = "<group>"; };
-		F54F2F7022FA457D00084F24 /* TFFacilityDetailViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityDetailViewDelegate.h; sourceTree = "<group>"; };
-		F54F2F7122FA46D700084F24 /* TFFacilityPresenterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityPresenterDelegate.h; sourceTree = "<group>"; };
 		F5514F1D22F667FF003F2AF7 /* Train Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Train Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5514F2022F66800003F2AF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5514F2122F66800003F2AF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,13 +147,9 @@
 		F54F2F6722FA3F7000084F24 /* Facility Detail */ = {
 			isa = PBXGroup;
 			children = (
-				F54F2F7022FA457D00084F24 /* TFFacilityDetailViewDelegate.h */,
 				F54F2F6822FA3FE000084F24 /* TFFacilityDetailViewController.h */,
 				F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */,
 				F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */,
-				F54F2F7122FA46D700084F24 /* TFFacilityPresenterDelegate.h */,
-				F54F2F6D22FA3FF400084F24 /* TFFacilityPresenter.h */,
-				F54F2F6E22FA3FF400084F24 /* TFFacilityPresenter.m */,
 			);
 			path = "Facility Detail";
 			sourceTree = "<group>";
@@ -419,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5514F5822F66DB5003F2AF7 /* TFLocationService.m in Sources */,
-				F54F2F6F22FA3FF400084F24 /* TFFacilityPresenter.m in Sources */,
 				F5514F3022F66805003F2AF7 /* main.m in Sources */,
 				F5514F4D22F66906003F2AF7 /* TFLandingPresenter.m in Sources */,
 				F58BAF6922F6A5F0006E97DD /* TFStopPoint.m in Sources */,

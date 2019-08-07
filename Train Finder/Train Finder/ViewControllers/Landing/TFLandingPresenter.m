@@ -30,8 +30,6 @@ double const ukMaxLongitude = 1.78;
 double const ukDefaultLong = -0.107712;
 double const ukDefaultLat = 51.507711;
 
-
-
 - (instancetype)init {
     self = [super init];
     if (!self) {
@@ -92,7 +90,7 @@ double const ukDefaultLat = 51.507711;
 }
 
 - (void)facilitySelected:(TFAdditionalProperties *)facility {
-    
+    [self.view presentFacility: facility];
 }
 
 @end

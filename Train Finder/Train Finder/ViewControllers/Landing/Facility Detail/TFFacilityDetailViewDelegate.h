@@ -12,11 +12,5 @@
 @protocol TFFacilityDetailViewDelegate <NSObject>
                                        
 - (instancetype)initWithFacility: (TFAdditionalProperties*) facility;
-                                       
-- (void)showLoadingView;
-- (void)hideLoadingView;
-- (void)refreshView;
-
-- (void)showErrorView:(NSString*) message;
-
+                                    
 @end

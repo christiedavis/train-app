@@ -66,7 +66,8 @@
 }
 
 - (void)presentFacility:(TFAdditionalProperties*) properties {
-    [self.navigationController presentViewController: [[TFFacilityDetailViewController alloc] initWithFacility: properties] animated: YES completion: nil];
+    [self.navigationController pushViewController:[[TFFacilityDetailViewController alloc] initWithFacility: properties] animated: YES];
+    
 }
 
 @end

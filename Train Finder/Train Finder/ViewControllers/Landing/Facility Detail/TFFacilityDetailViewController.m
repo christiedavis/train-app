@@ -10,35 +10,24 @@
 
 @interface TFFacilityDetailViewController ()
 
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) TFAdditionalProperties* facility;
+
 @end
 
 @implementation TFFacilityDetailViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 - (instancetype)initWithFacility: (TFAdditionalProperties*) facility {
     self = [super init];
     if (self) {
-        [self.presenter setFacility: facility];
+        self.facility = facility;
     }
     return self;
 }
 
-- (void)hideLoadingView {
-    
-}
-
-- (void)refreshView {
-    
-}
-
-- (void)showErrorView:(NSString *)message {
-    
-}
-
-- (void)showLoadingView {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.nameLabel.text = self.facility.key;
     
 }
 

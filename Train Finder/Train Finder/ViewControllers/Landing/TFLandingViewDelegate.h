@@ -15,5 +15,6 @@
 - (void)refreshView;
 
 - (void)showErrorView:(NSString*) message;
+- (void)presentFacility:(TFAdditionalProperties*) properties;
 
 @end

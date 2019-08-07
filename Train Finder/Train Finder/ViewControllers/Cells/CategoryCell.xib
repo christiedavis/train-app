@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvC-Od-y5F">
-                        <rect key="frame" x="4" y="4" width="101" height="27"/>
+                        <rect key="frame" x="0.0" y="0.0" width="109" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwW-fh-pLq">
-                                <rect key="frame" x="4" y="4" width="93" height="19"/>
+                                <rect key="frame" x="4" y="4" width="101" height="27"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -39,12 +39,11 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.2393315362" green="0.31936441529999998" blue="0.5102267466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="qvC-Od-y5F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="Id7-0H-PIQ"/>
-                <constraint firstItem="qvC-Od-y5F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="TXq-HI-bMV"/>
-                <constraint firstAttribute="bottom" secondItem="qvC-Od-y5F" secondAttribute="bottom" constant="4" id="mhR-vv-Z45"/>
-                <constraint firstAttribute="trailing" secondItem="qvC-Od-y5F" secondAttribute="trailing" constant="4" id="o0v-E2-LMp"/>
+                <constraint firstItem="qvC-Od-y5F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Id7-0H-PIQ"/>
+                <constraint firstItem="qvC-Od-y5F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TXq-HI-bMV"/>
+                <constraint firstAttribute="bottom" secondItem="qvC-Od-y5F" secondAttribute="bottom" id="mhR-vv-Z45"/>
+                <constraint firstAttribute="trailing" secondItem="qvC-Od-y5F" secondAttribute="trailing" id="o0v-E2-LMp"/>
             </constraints>
             <size key="customSize" width="109" height="35"/>
             <connections>

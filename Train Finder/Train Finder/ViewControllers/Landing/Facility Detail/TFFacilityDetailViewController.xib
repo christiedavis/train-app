@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TFFacilityDetailViewController">
             <connections>
+                <outlet property="nameLabel" destination="O6l-He-hzH" id="xMT-Bw-CHg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6l-He-hzH">
+                    <rect key="frame" x="10" y="436" width="394" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="O6l-He-hzH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0gi-Yu-ia6"/>
+                <constraint firstItem="O6l-He-hzH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="LUc-at-vNN"/>
+                <constraint firstItem="O6l-He-hzH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OyV-7Z-JIe"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="O6l-He-hzH" secondAttribute="trailing" constant="10" id="Y7m-Qj-FhY"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>

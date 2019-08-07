@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TFFacilityDetailViewDelegate.h"
-#import "TFFacilityPresenterDelegate.h"
+#import "TFAdditionalProperties.h"
 
-@interface TFFacilityDetailViewController : UIViewController <TFFacilityDetailViewDelegate>
+// TODO: This should have a presenter, but for the case of this example, the creen is simple enough to not bother.
+@interface TFFacilityDetailViewController : UIViewController
 
-@property (nonatomic, strong) id<TFFacilityPresenterDelegate> presenter;
-
+- (instancetype)initWithFacility: (TFAdditionalProperties*) facility;
 
 @end
 
