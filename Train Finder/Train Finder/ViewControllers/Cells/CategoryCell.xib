@@ -32,7 +32,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="XwW-fh-pLq" firstAttribute="leading" secondItem="DTj-rU-Ajn" secondAttribute="leading" constant="2" id="2aG-HK-tuL"/>
                                     <constraint firstItem="XwW-fh-pLq" firstAttribute="top" secondItem="DTj-rU-Ajn" secondAttribute="top" id="a4V-bc-0ZO"/>

@@ -15,5 +15,6 @@
 + (NSString*)reuseIdentifier;
 
 - (void)setupWithStop: (TFStopPoint*) stopPoint andDelegate: (id<TFFacilitySelectionDelegate>) selectionDelegate;
+- (void)deselectAllFacilities;
 
 @end

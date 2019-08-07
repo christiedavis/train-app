@@ -28,6 +28,15 @@
     return @"TFStationCell";
 }
 
+-(void)prepareForReuse {
+    [super prepareForReuse];
+    [self deselectAllFacilities];
+}
+
+- (void)deselectAllFacilities {
+    [self.collectionView deselectItemAtIndexPath: [self.collectionView indexPathsForSelectedItems] animated: YES];
+}
+
 - (void)setup {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

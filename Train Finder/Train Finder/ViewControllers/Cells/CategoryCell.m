@@ -30,6 +30,15 @@
     self.containerView.layer.cornerRadius = 3;
 }
 
+- (void)setSelected:(BOOL)selected {
+    if (selected) {
+        self.containerView.backgroundColor = UIColor.blackColor;
+    } else {
+        self.containerView.backgroundColor = UIColor.darkGrayColor;
+
+    }
+}
+
 + (CGSize)sizeWithText: (NSString*) text withMaxWidth: (CGFloat) maxWidth {
     
     CGSize constraintRect = CGSizeMake(maxWidth, 33.0);

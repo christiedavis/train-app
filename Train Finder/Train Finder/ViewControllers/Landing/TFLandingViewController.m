@@ -27,7 +27,6 @@
     [super viewDidLoad];
     
     [self.tableView registerNib: [UINib nibWithNibName: [TFStationCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [TFStationCell reuseIdentifier]];
-//    [self.collectionView registerNib: [UINib nibWithNibName: [TILoadMoreCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TILoadMoreCell reuseIdentifier]];
     
     self.tableView.delegate = self.presenter;
     self.tableView.dataSource = self.presenter;
@@ -36,6 +35,11 @@
 
     [self hideErrorView];
     [self showLoadingView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData]; // todo: this is used to deselect facility tiles. It's not the most efficient way of doing it though, and could be improved
 }
 
 - (void)refreshView {
