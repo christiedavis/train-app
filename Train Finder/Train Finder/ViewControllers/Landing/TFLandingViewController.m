@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loader;
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
 
 @property (strong, nonatomic) IBOutlet UIView *errorView;
 @property (strong, nonatomic) IBOutlet UILabel *errorMessageLabel;
@@ -56,13 +57,13 @@
 }
 
 - (void)showLoadingView {
-    [self.loader setHidden: NO];
+    [self.loadingView setHidden: NO];
     [self.loader startAnimating];
     [self.errorView setHidden: YES];
 }
 
 - (void)hideLoadingView {
-    [self.loader setHidden: YES];
+    [self.loadingView setHidden: YES];
     [self.loader stopAnimating];
 }
 

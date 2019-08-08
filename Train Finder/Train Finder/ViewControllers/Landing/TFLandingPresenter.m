@@ -123,6 +123,10 @@ double const ukDefaultLat = 51.507711;
     NSString *latString = [NSString stringWithFormat: @"%f", location.coordinate.latitude];
     
     [self.repoFactory.apiService getStopsForLat: latString andlon: longString WithCallback:^(TFStopPointsResponse *response, NSError *error) {
+        if (error) {
+            // TODO: it would be good to update this to have a retry button
+            [self.view showErrorView: @"Sorry, something went wrong - try again later"];
+        }
         self.stopList = response.stopPoints;
         completion();
     }];
