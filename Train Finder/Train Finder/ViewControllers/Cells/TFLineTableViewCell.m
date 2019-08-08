@@ -23,7 +23,16 @@
 
 - (void) setupWithPrediction:(TFArrivalPrediction*) prediction {
     self.lineNameLabel.text = prediction.platformName;
-    self.timeLabel.text = [NSString stringWithFormat: @"%@", prediction.timeToStation];
+    
+    if (prediction.timeToStation.integerValue < 60) {
+        // Less than an hour
+        self.timeLabel.text = [NSString stringWithFormat: @"%@mins", prediction.timeToStation];
+    } else {
+        long minutes = prediction.timeToStation.integerValue % 60;
+        long hours = prediction.timeToStation.integerValue / 60;
+        
+        self.timeLabel.text = [NSString stringWithFormat: @"%ldh %ldmins", hours, minutes];
+    }
 }
 
 @end
