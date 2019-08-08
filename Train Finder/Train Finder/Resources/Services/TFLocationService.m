@@ -20,14 +20,9 @@
 @implementation TFLocationService
 // Also adding a landing screen that tells users why we want their location before jumping straight into the prompt would be better UX
 
-- (BOOL)shouldCheckPermission {
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if (status == kCLAuthorizationStatusNotDetermined) {
-        return true;
-    }
-    
-    // TODO: I would like to come back here and handle more permission states
-    return false;
+- (void)getCurrentLocationWithCallback:(void (^)(CLLocation *location, NSError *error))callback {
+    self.callback = callback;
+    [self prepareToTrack];
 }
 
 - (void)prepareToTrack {
@@ -47,15 +42,17 @@
     }
 }
 
-- (void)requestPermission {
-    [self.locationManager requestWhenInUseAuthorization];
+- (BOOL)shouldCheckPermission {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (status == kCLAuthorizationStatusNotDetermined) {
+        return true;
+    }
+    // TODO: I would like to come back here and handle more permission states
+    return false;
 }
 
-- (void)getCurrentLocationWithCallback:(void (^)(CLLocation *location, NSError *error))callback {
-    
-    self.callback = callback;
-    [self prepareToTrack];
-
+- (void)requestPermission {
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
 #pragma mark: LOCATION DELEGATE

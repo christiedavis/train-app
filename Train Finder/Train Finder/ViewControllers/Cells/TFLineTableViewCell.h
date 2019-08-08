@@ -1,5 +1,5 @@
 //
-//  LineTableViewCell.h
+//  TFLineTableViewCell.h
 //  Train Finder
 //
 //  Created by Christie Davis on 7/08/19.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TFArrivalPrediction.h"
 
-@interface LineTableViewCell : UITableViewCell
+@interface TFLineTableViewCell : UITableViewCell
 
 + (NSString*)reuseIdentifier;
 - (void) setupWithPrediction:(TFArrivalPrediction*) prediction;

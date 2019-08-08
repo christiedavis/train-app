@@ -1,24 +1,24 @@
 //
-//  LineTableViewCell.m
+//  TFLineTableViewCell.m
 //  Train Finder
 //
 //  Created by Christie Davis on 7/08/19.
 //  Copyright © 2019 Christie-Davis. All rights reserved.
 //
 
-#import "LineTableViewCell.h"
+#import "TFLineTableViewCell.h"
 
-@interface LineTableViewCell()
+@interface TFLineTableViewCell()
 
 @property (strong, nonatomic) IBOutlet UILabel *lineNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
-@implementation LineTableViewCell
+@implementation TFLineTableViewCell
 
 + (NSString*)reuseIdentifier {
-    return @"LineTableViewCell";
+    return @"TFLineTableViewCell";
 }
 
 - (void) setupWithPrediction:(TFArrivalPrediction*) prediction {

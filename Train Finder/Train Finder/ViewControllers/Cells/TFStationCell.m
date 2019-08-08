@@ -7,7 +7,7 @@
 //
 
 #import "TFStationCell.h"
-#import "CategoryCell.h"
+#import "TFCategoryCell.h"
 #import "TFStopPoint.h"
 
 @interface TFStationCell()
@@ -43,7 +43,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self.collectionView registerNib: [UINib nibWithNibName: [CategoryCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [CategoryCell reuseIdentifier]];
+    [self.collectionView registerNib: [UINib nibWithNibName: [TFCategoryCell reuseIdentifier] bundle: nil] forCellWithReuseIdentifier: [TFCategoryCell reuseIdentifier]];
     
 }
 
@@ -74,13 +74,13 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [CategoryCell reuseIdentifier] forIndexPath: indexPath];
+    TFCategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: [TFCategoryCell reuseIdentifier] forIndexPath: indexPath];
     [cell setup: self.features[indexPath.item]];
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [CategoryCell sizeWithText: self.features[indexPath.item].key withMaxWidth: [UIScreen mainScreen].bounds.size.width - 12];
+    return [TFCategoryCell sizeWithText: self.features[indexPath.item].key withMaxWidth: [UIScreen mainScreen].bounds.size.width - 12];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

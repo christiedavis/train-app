@@ -8,7 +8,7 @@
 
 #import "TFLandingViewController.h"
 #import "TFFacilityDetailViewController.h"
-#import "LineTableViewCell.h"
+#import "TFLineTableViewCell.h"
 #import "TFStationCell.h"
 
 @interface TFLandingViewController ()
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerNib: [UINib nibWithNibName: [LineTableViewCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [LineTableViewCell reuseIdentifier]];
+    [self.tableView registerNib: [UINib nibWithNibName: [TFLineTableViewCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [TFLineTableViewCell reuseIdentifier]];
     [self.tableView registerNib: [UINib nibWithNibName: [TFStationCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [TFStationCell reuseIdentifier]];
 
     

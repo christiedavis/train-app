@@ -46,16 +46,28 @@ NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
       }];
 }
 
+// Internal method to process the list of station lines
+- (NSArray<TFArrivalPrediction*>*)getThreeClosestTrains:(NSArray<TFArrivalPrediction*>*) trainPredictions {
+    NSArray* sortedArray = [trainPredictions sortedArrayUsingComparator:^NSComparisonResult(TFArrivalPrediction* obj1, TFArrivalPrediction* obj2) {
+        return obj1.timeToStation < obj2.timeToStation;
+    }];
+    
+    NSArray* threeClosest = [sortedArray subarrayWithRange: NSMakeRange(0, 3)];
+    return threeClosest;
+}
+
 - (void)getArrivalTimes:(NSArray<NSString*>*) stopIdArray WithCallback:(void (^)(NSDictionary<NSString*, NSArray<TFArrivalPrediction*>*>* response))callback {
     
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithCapacity: stopIdArray.count];
     
-    // I think this would be done better with promises
+    // I think this would be done better with promises - this is not wonderful
     for (NSString* stopId in stopIdArray) {
         
-        [self getArrivalsFor: stopId WithCallback:^(TFArrivalPrediction *response, NSError *error) {
+        [self getArrivalsFor: stopId WithCallback:^(NSArray<TFArrivalPrediction*>* response, NSError *error) {
             if (response) {
-                dict[stopId] = response;
+                // Process the results, before returning them.
+                NSArray* processedArray = [self getThreeClosestTrains: response];
+                dict[stopId] = processedArray;
                 
             } else if (error) {
                 dict[stopId] = @"error";
@@ -71,7 +83,8 @@ NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
     }
 }
 
-- (void)getArrivalsFor: (NSString*) naptanId WithCallback:(void (^)(TFArrivalPrediction *response, NSError *error))callback {
+// Internal method to call for an arival list for a station id
+- (void)getArrivalsFor: (NSString*) naptanId WithCallback:(void (^)(NSArray<TFArrivalPrediction*>* response, NSError *error))callback {
     NSDictionary* parameters = @{
                                  @"modes": @"tube",
                                  @"app_id": apiAppId,

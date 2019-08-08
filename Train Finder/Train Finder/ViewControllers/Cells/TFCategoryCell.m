@@ -1,24 +1,24 @@
 //
-//  CategoryCell.m
+//  TFCategoryCell.m
 //  Train Finder
 //
 //  Created by Christie Davis on 4/08/19.
 //  Copyright © 2019 Christie-Davis. All rights reserved.
 //
 
-#import "CategoryCell.h"
+#import "TFCategoryCell.h"
 
-@interface CategoryCell()
+@interface TFCategoryCell()
 
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
-@implementation CategoryCell
+@implementation TFCategoryCell
 
 + (NSString*)reuseIdentifier {
-    return @"CategoryCell";
+    return @"TFCategoryCell";
 }
 
 - (void)setup:(TFAdditionalProperties*) property {

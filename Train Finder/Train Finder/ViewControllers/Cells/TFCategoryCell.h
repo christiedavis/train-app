@@ -1,5 +1,5 @@
 //x
-//  CategoryCell.h
+//  TFCategoryCell.h
 //  Train Finder
 //
 //  Created by Christie Davis on 4/08/19.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TFAdditionalProperties.h"
 
-@interface CategoryCell : UICollectionViewCell
+@interface TFCategoryCell : UICollectionViewCell
 
 + (NSString*)reuseIdentifier;
 - (void)setup:(TFAdditionalProperties*) property;

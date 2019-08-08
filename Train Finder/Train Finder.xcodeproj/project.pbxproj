@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C24647A2674887AA8E697F7 /* libPods-Train FinderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */; };
 		A5C98FC7F5278F75BB6206A0 /* libPods-Train Finder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2405984C4FD8F11650FE0A08 /* libPods-Train Finder.a */; };
-		F541ECD222FAA7DF00750D49 /* LineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F541ECD022FAA7DF00750D49 /* LineTableViewCell.m */; };
-		F541ECD322FAA7DF00750D49 /* LineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F541ECD122FAA7DF00750D49 /* LineTableViewCell.xib */; };
+		F541ECD222FAA7DF00750D49 /* TFLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F541ECD022FAA7DF00750D49 /* TFLineTableViewCell.m */; };
+		F541ECD322FAA7DF00750D49 /* TFLineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F541ECD122FAA7DF00750D49 /* TFLineTableViewCell.xib */; };
 		F54F2F6B22FA3FE000084F24 /* TFFacilityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */; };
 		F54F2F6C22FA3FE000084F24 /* TFFacilityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54F2F6A22FA3FE000084F24 /* TFFacilityDetailViewController.xib */; };
 		F5514F2222F66800003F2AF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5514F2122F66800003F2AF7 /* AppDelegate.m */; };
@@ -29,8 +29,8 @@
 		F58BAF6C22F6A6EC006E97DD /* TFAdditionalProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6B22F6A6EC006E97DD /* TFAdditionalProperties.m */; };
 		F58BAF7122F6C315006E97DD /* TFStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF6F22F6C315006E97DD /* TFStationCell.m */; };
 		F58BAF7222F6C315006E97DD /* TFStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58BAF7022F6C315006E97DD /* TFStationCell.xib */; };
-		F58BAF7622F6C9FC006E97DD /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF7422F6C9FC006E97DD /* CategoryCell.m */; };
-		F58BAF7722F6C9FC006E97DD /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */; };
+		F58BAF7622F6C9FC006E97DD /* TFCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58BAF7422F6C9FC006E97DD /* TFCategoryCell.m */; };
+		F58BAF7722F6C9FC006E97DD /* TFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58BAF7522F6C9FC006E97DD /* TFCategoryCell.xib */; };
 		F5FEC99F22FA784900C5FE64 /* TFArrivalPrediction.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FEC99E22FA784900C5FE64 /* TFArrivalPrediction.m */; };
 /* End PBXBuildFile section */
 
@@ -51,9 +51,9 @@
 		436ECD87CFB98B2BF81CA122 /* libPods-Train FinderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Train FinderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3408AC8610E3FCC1A9F216 /* Pods-Train Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train Finder/Pods-Train Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F0B34444EA1D5D7F873C9C22 /* Pods-Train FinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train FinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Train FinderTests/Pods-Train FinderTests.release.xcconfig"; sourceTree = "<group>"; };
-		F541ECCF22FAA7DF00750D49 /* LineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineTableViewCell.h; sourceTree = "<group>"; };
-		F541ECD022FAA7DF00750D49 /* LineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineTableViewCell.m; sourceTree = "<group>"; };
-		F541ECD122FAA7DF00750D49 /* LineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineTableViewCell.xib; sourceTree = "<group>"; };
+		F541ECCF22FAA7DF00750D49 /* TFLineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFLineTableViewCell.h; sourceTree = "<group>"; };
+		F541ECD022FAA7DF00750D49 /* TFLineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFLineTableViewCell.m; sourceTree = "<group>"; };
+		F541ECD122FAA7DF00750D49 /* TFLineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFLineTableViewCell.xib; sourceTree = "<group>"; };
 		F54F2F6522FA3D5F00084F24 /* TFFacilitySelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilitySelectionDelegate.h; sourceTree = "<group>"; };
 		F54F2F6822FA3FE000084F24 /* TFFacilityDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFFacilityDetailViewController.h; sourceTree = "<group>"; };
 		F54F2F6922FA3FE000084F24 /* TFFacilityDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFFacilityDetailViewController.m; sourceTree = "<group>"; };
@@ -90,9 +90,9 @@
 		F58BAF6E22F6C315006E97DD /* TFStationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFStationCell.h; sourceTree = "<group>"; };
 		F58BAF6F22F6C315006E97DD /* TFStationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFStationCell.m; sourceTree = "<group>"; };
 		F58BAF7022F6C315006E97DD /* TFStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFStationCell.xib; sourceTree = "<group>"; };
-		F58BAF7322F6C9FC006E97DD /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
-		F58BAF7422F6C9FC006E97DD /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
-		F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		F58BAF7322F6C9FC006E97DD /* TFCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFCategoryCell.h; sourceTree = "<group>"; };
+		F58BAF7422F6C9FC006E97DD /* TFCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCategoryCell.m; sourceTree = "<group>"; };
+		F58BAF7522F6C9FC006E97DD /* TFCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFCategoryCell.xib; sourceTree = "<group>"; };
 		F5FEC99D22FA784900C5FE64 /* TFArrivalPrediction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFArrivalPrediction.h; sourceTree = "<group>"; };
 		F5FEC99E22FA784900C5FE64 /* TFArrivalPrediction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFArrivalPrediction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,13 +259,13 @@
 				F58BAF6E22F6C315006E97DD /* TFStationCell.h */,
 				F58BAF6F22F6C315006E97DD /* TFStationCell.m */,
 				F58BAF7022F6C315006E97DD /* TFStationCell.xib */,
-				F58BAF7322F6C9FC006E97DD /* CategoryCell.h */,
-				F58BAF7422F6C9FC006E97DD /* CategoryCell.m */,
-				F58BAF7522F6C9FC006E97DD /* CategoryCell.xib */,
+				F58BAF7322F6C9FC006E97DD /* TFCategoryCell.h */,
+				F58BAF7422F6C9FC006E97DD /* TFCategoryCell.m */,
+				F58BAF7522F6C9FC006E97DD /* TFCategoryCell.xib */,
 				F54F2F6522FA3D5F00084F24 /* TFFacilitySelectionDelegate.h */,
-				F541ECCF22FAA7DF00750D49 /* LineTableViewCell.h */,
-				F541ECD022FAA7DF00750D49 /* LineTableViewCell.m */,
-				F541ECD122FAA7DF00750D49 /* LineTableViewCell.xib */,
+				F541ECCF22FAA7DF00750D49 /* TFLineTableViewCell.h */,
+				F541ECD022FAA7DF00750D49 /* TFLineTableViewCell.m */,
+				F541ECD122FAA7DF00750D49 /* TFLineTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -352,9 +352,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F541ECD322FAA7DF00750D49 /* LineTableViewCell.xib in Resources */,
+				F541ECD322FAA7DF00750D49 /* TFLineTableViewCell.xib in Resources */,
 				F54F2F6C22FA3FE000084F24 /* TFFacilityDetailViewController.xib in Resources */,
-				F58BAF7722F6C9FC006E97DD /* CategoryCell.xib in Resources */,
+				F58BAF7722F6C9FC006E97DD /* TFCategoryCell.xib in Resources */,
 				F5514F4A22F66867003F2AF7 /* TFLandingViewController.xib in Resources */,
 				F5514F2D22F66805003F2AF7 /* LaunchScreen.storyboard in Resources */,
 				F58BAF7222F6C315006E97DD /* TFStationCell.xib in Resources */,
@@ -430,9 +430,9 @@
 				F5514F5522F66DAA003F2AF7 /* TFAPIService.m in Sources */,
 				F58BAF6C22F6A6EC006E97DD /* TFAdditionalProperties.m in Sources */,
 				F5FEC99F22FA784900C5FE64 /* TFArrivalPrediction.m in Sources */,
-				F541ECD222FAA7DF00750D49 /* LineTableViewCell.m in Sources */,
+				F541ECD222FAA7DF00750D49 /* TFLineTableViewCell.m in Sources */,
 				F58BAF7122F6C315006E97DD /* TFStationCell.m in Sources */,
-				F58BAF7622F6C9FC006E97DD /* CategoryCell.m in Sources */,
+				F58BAF7622F6C9FC006E97DD /* TFCategoryCell.m in Sources */,
 				F5514F5B22F66DC4003F2AF7 /* TFRepositoryFactory.m in Sources */,
 				F54F2F6B22FA3FE000084F24 /* TFFacilityDetailViewController.m in Sources */,
 				F58BAF6522F68A5C006E97DD /* TFStopPointsResponse.m in Sources */,

@@ -11,7 +11,7 @@
 #import "TFRepositoryFactory.h"
 #import <CoreLocation/CoreLocation.h>
 #import "TFStationCell.h"
-#import "LineTableViewCell.h"
+#import "TFLineTableViewCell.h"
 
 @interface TFLandingPresenter()
 
@@ -120,7 +120,7 @@ double const ukDefaultLat = 51.507711;
         NSArray<TFArrivalPrediction*>* predictionArray = [self getPredictionArrayForSection: indexPath.section];
         TFArrivalPrediction *prediction = predictionArray[adjustedRow];
         
-        LineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [LineTableViewCell reuseIdentifier]];
+        TFLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFLineTableViewCell reuseIdentifier]];
         [cell setupWithPrediction: prediction];
         
         return cell;
