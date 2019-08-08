@@ -11,6 +11,7 @@
 @interface LineTableViewCell()
 
 @property (strong, nonatomic) IBOutlet UILabel *lineNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -20,20 +21,9 @@
     return @"LineTableViewCell";
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
 - (void) setupWithPrediction:(TFArrivalPrediction*) prediction {
     self.lineNameLabel.text = prediction.platformName;
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.timeLabel.text = [NSString stringWithFormat: @"%@", prediction.timeToStation];
 }
 
 @end

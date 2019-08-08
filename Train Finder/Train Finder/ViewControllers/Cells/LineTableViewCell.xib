@@ -20,20 +20,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiE-55-2Q1">
-                        <rect key="frame" x="139" y="11.5" width="42" height="21"/>
+                        <rect key="frame" x="8" y="8" width="42" height="27.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFr-kP-KpM">
+                        <rect key="frame" x="270" y="8" width="42" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="HiE-55-2Q1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="TNy-QI-vju"/>
-                    <constraint firstItem="HiE-55-2Q1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sxg-jh-iCo"/>
+                    <constraint firstItem="IFr-kP-KpM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5Um-Ok-RjU"/>
+                    <constraint firstItem="HiE-55-2Q1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6Pa-8C-xat"/>
+                    <constraint firstAttribute="bottom" secondItem="IFr-kP-KpM" secondAttribute="bottom" constant="8" id="JZG-8e-V3W"/>
+                    <constraint firstAttribute="bottom" secondItem="HiE-55-2Q1" secondAttribute="bottom" constant="8" id="PbS-Ma-TyF"/>
+                    <constraint firstItem="HiE-55-2Q1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ca4-Qx-RLm"/>
+                    <constraint firstAttribute="trailing" secondItem="IFr-kP-KpM" secondAttribute="trailing" constant="8" id="yna-sP-gxi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="lineNameLabel" destination="HiE-55-2Q1" id="97S-Yc-OtY"/>
+                <outlet property="timeLabel" destination="IFr-kP-KpM" id="QmL-A0-n5D"/>
             </connections>
         </tableViewCell>
     </objects>
