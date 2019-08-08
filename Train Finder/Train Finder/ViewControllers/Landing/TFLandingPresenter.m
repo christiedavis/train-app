@@ -127,6 +127,8 @@ double const ukDefaultLat = 51.507711;
             // TODO: it would be good to update this to have a retry button
             [self.view showErrorView: @"Sorry, something went wrong - try again later"];
         }
+        
+        // TODO: it would be nice to sort these in order of proximaty to the user.
         self.stopList = response.stopPoints;
         completion();
     }];

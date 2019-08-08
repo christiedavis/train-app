@@ -7,12 +7,17 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TFLandingPresenter.h"
 
 @interface Train_FinderTests : XCTestCase
+
+@property (strong, nonatomic) TFLandingPresenter* presenter;
 
 @end
 
 @implementation Train_FinderTests
+
+
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,15 +28,7 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    
 }
 
 @end
