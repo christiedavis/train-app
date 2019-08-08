@@ -7,6 +7,7 @@
 //
 
 #import "TFAPIService.h"
+#import "TFArrivalPrediction.h"
 
 @implementation TFAPIService
 
@@ -45,7 +46,32 @@ NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
       }];
 }
 
-- (void)getArrivalsFor: (NSString*) naptanId WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback {
+- (void)getArrivalTimes:(NSArray<NSString*>*) stopIdArray WithCallback:(void (^)(NSDictionary<NSString*, NSArray<TFArrivalPrediction*>*>* response))callback {
+    
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithCapacity: stopIdArray.count];
+    
+    // I think this would be done better with promises
+    for (NSString* stopId in stopIdArray) {
+        
+        [self getArrivalsFor: stopId WithCallback:^(TFArrivalPrediction *response, NSError *error) {
+            if (response) {
+                dict[stopId] = response;
+                
+            } else if (error) {
+                dict[stopId] = @"error";
+            } else {
+                dict[stopId] = @"noresponse";
+            }
+            
+            if (dict.allKeys.count == stopIdArray.count) {
+                // all calls finished
+                callback(dict);
+            }
+        }];
+    }
+}
+
+- (void)getArrivalsFor: (NSString*) naptanId WithCallback:(void (^)(TFArrivalPrediction *response, NSError *error))callback {
     NSDictionary* parameters = @{
                                  @"modes": @"tube",
                                  @"app_id": apiAppId,
@@ -67,8 +93,10 @@ NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
 
 #pragma mark - Subclass overrides
 + (NSDictionary<NSString *, Class> *)modelClassesByResourcePath {
+    
     return @{
              stopsUrl: TFStopPointsResponse.class,
+             @"StopPoint/*/*": [TFArrivalPrediction class]
              };
 }
 

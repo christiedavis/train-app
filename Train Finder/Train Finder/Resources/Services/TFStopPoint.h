@@ -12,6 +12,7 @@
 
 @interface TFStopPoint : MTLModel <MTLJSONSerializing>
 
+@property (strong, nonatomic) NSString* naptanId;
 @property (strong, nonatomic) NSString* commonName;
 @property (strong, nonatomic) NSArray<TFAdditionalProperties*>* additionalProperties;
 

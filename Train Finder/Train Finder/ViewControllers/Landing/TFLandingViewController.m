@@ -8,7 +8,7 @@
 
 #import "TFLandingViewController.h"
 #import "TFFacilityDetailViewController.h"
-
+#import "LineTableViewCell.h"
 #import "TFStationCell.h"
 
 @interface TFLandingViewController ()
@@ -26,7 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView registerNib: [UINib nibWithNibName: [LineTableViewCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [LineTableViewCell reuseIdentifier]];
     [self.tableView registerNib: [UINib nibWithNibName: [TFStationCell reuseIdentifier] bundle: nil] forCellReuseIdentifier: [TFStationCell reuseIdentifier]];
+
     
     self.tableView.delegate = self.presenter;
     self.tableView.dataSource = self.presenter;
@@ -71,7 +73,6 @@
 
 - (void)presentFacility:(TFAdditionalProperties*) properties {
     [self.navigationController pushViewController:[[TFFacilityDetailViewController alloc] initWithFacility: properties] animated: YES];
-    
 }
 
 @end

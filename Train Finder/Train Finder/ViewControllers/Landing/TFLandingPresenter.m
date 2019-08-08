@@ -11,6 +11,7 @@
 #import "TFRepositoryFactory.h"
 #import <CoreLocation/CoreLocation.h>
 #import "TFStationCell.h"
+#import "LineTableViewCell.h"
 
 @interface TFLandingPresenter()
 
@@ -18,6 +19,8 @@
 @property (strong, nonatomic) CLLocation* lastRecordedLocation;
 
 @property (strong, nonatomic) TFStopPointsResponse* stops;
+@property (strong, nonatomic) NSDictionary<NSString*, NSArray<TFArrivalPrediction*>*>* predictionDict;
+
 @end
 
 
@@ -74,19 +77,54 @@ double const ukDefaultLat = 51.507711;
     
     [self.repoFactory.apiService getStopsForLat: latString andlon: longString WithCallback:^(TFStopPointsResponse *response, NSError *error) {
         self.stops = response;
-        [self.view refreshView];
+        
+        NSArray* stopStringArray = [self getStopList: self.stops];
+        
+        [self.repoFactory.apiService getArrivalTimes:stopStringArray WithCallback:^(NSDictionary<NSString *, NSArray<TFArrivalPrediction*>*> *response) {
+            
+            self.predictionDict = response;
+            [self.view refreshView];
+        }];
     }];
 }
 
+- (NSArray*)getStopList: (TFStopPointsResponse*)stops {
+    
+    NSMutableArray* stopStringArray = [[NSMutableArray alloc] init];
+    for (TFStopPoint *stop in self.stops.stopPoints) {
+        [stopStringArray addObject: stop.naptanId];
+    }
+    return stopStringArray;
+}
+
+- (NSArray<TFArrivalPrediction*>*)getPredictionArrayForSection:(NSInteger) section {
+    return self.predictionDict[self.stops.stopPoints[section].naptanId];
+}
+
 // MARK: Table View Delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.stops.stopPoints.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self getPredictionArrayForSection: section].count + 1; // + 1 for the title cell
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TFStationCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFStationCell reuseIdentifier]];
-    [cell setupWithStop: self.stops.stopPoints[indexPath.item] andDelegate: self];
-    return cell;
+    if (indexPath.row == 0) {
+        TFStationCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFStationCell reuseIdentifier]];
+        [cell setupWithStop: self.stops.stopPoints[indexPath.section] andDelegate: self];
+        return cell;
+    } else {
+        NSInteger adjustedRow = indexPath.row - 1;
+        NSArray<TFArrivalPrediction*>* predictionArray = [self getPredictionArrayForSection: indexPath.section];
+        TFArrivalPrediction *prediction = predictionArray[adjustedRow];
+        
+        LineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [LineTableViewCell reuseIdentifier]];
+        [cell setupWithPrediction: prediction];
+        
+        return cell;
+    }
 }
 
 - (void)facilitySelected:(TFAdditionalProperties *)facility {

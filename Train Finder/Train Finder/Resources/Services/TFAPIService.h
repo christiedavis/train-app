@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Overcoat/Overcoat.h>
+#import "TFArrivalPrediction.h"
 
 #import "TFStopPointsResponse.h"
 
 @interface TFAPIService : OVCHTTPSessionManager
+
 - (void)getStopsForLat: (NSString*) lat andlon: (NSString*) lon WithCallback:(void (^)(TFStopPointsResponse *response, NSError *error))callback;
+
+- (void)getArrivalTimes:(NSArray<NSString*>*) stopIdArray WithCallback:(void (^)(NSDictionary<NSString*, NSArray<TFArrivalPrediction*>*>* response))callback;
 
 @end

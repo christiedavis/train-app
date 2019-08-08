@@ -34,7 +34,9 @@
 }
 
 - (void)deselectAllFacilities {
-    [self.collectionView deselectItemAtIndexPath: [self.collectionView indexPathsForSelectedItems] animated: YES];
+    for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
+        [self.collectionView deselectItemAtIndexPath: indexPath animated: YES];
+    }
 }
 
 - (void)setup {

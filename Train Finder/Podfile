@@ -9,6 +9,7 @@ target 'Train Finder' do
 pod 'Overcoat'
   pod 'AFNetworking'
   pod 'AFNetworking/UIKit'
+#  pod 'PromiseKit'
 
   target 'Train FinderTests' do
     inherit! :search_paths
