@@ -48,8 +48,9 @@ NSString *const stopTypes = @"NaptanMetroStation,NaptanRailStation";
 
 // Internal method to process the list of station lines
 - (NSArray<TFArrivalPrediction*>*)getThreeClosestTrains:(NSArray<TFArrivalPrediction*>*) trainPredictions {
+    
     NSArray* sortedArray = [trainPredictions sortedArrayUsingComparator:^NSComparisonResult(TFArrivalPrediction* obj1, TFArrivalPrediction* obj2) {
-        return obj1.timeToStation < obj2.timeToStation;
+        return [obj1.timeToStation compare: obj2.timeToStation];
     }];
     
     NSArray* threeClosest = [sortedArray subarrayWithRange: NSMakeRange(0, 3)];

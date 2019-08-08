@@ -33,7 +33,7 @@
     self.tableView.delegate = self.presenter;
     self.tableView.dataSource = self.presenter;
     
-    [self.presenter findMyLocation];
+    [self.presenter load];
 
     [self hideErrorView];
     [self showLoadingView];
@@ -41,7 +41,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self.presenter startRefreshTimer];
     [self.tableView reloadData]; // todo: this is used to deselect facility tiles. It's not the most efficient way of doing it though, and could be improved
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear: animated];
+    [self.presenter stopRefreshTimer];
 }
 
 - (void)refreshView {

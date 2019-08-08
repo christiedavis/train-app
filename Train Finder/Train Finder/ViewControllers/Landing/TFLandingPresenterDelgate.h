@@ -12,6 +12,9 @@
 
 @protocol TFLandingPresenterDelgate  <NSObject, UITableViewDelegate, UITableViewDataSource, TFFacilitySelectionDelegate>
 
-- (void)findMyLocation;
+- (void)load;
+
+- (void)startRefreshTimer;
+- (void)stopRefreshTimer;
 
 @end

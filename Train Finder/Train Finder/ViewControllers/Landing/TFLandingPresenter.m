@@ -18,8 +18,12 @@
 @property (strong, nonatomic) TFRepositoryFactory* repoFactory;
 @property (strong, nonatomic) CLLocation* lastRecordedLocation;
 
-@property (strong, nonatomic) TFStopPointsResponse* stops;
+@property (strong, nonatomic) NSArray<TFStopPoint*>* stopList;
 @property (strong, nonatomic) NSDictionary<NSString*, NSArray<TFArrivalPrediction*>*>* predictionDict;
+
+@property (strong, nonatomic) NSTimer* timer;
+
+@property (nonatomic) BOOL isInitialised; // Used to ensure we don't fire the timer too many times.
 
 @end
 
@@ -43,21 +47,63 @@ double const ukDefaultLat = 51.507711;
     return self;
 }
 
-- (void)findMyLocation {
+- (void)load {
+    [self findMyLocationWithCompletion:^{
+       
+        // Ensures the location is within UK borders
+        self.lastRecordedLocation = [self processLocation: self.lastRecordedLocation];
+        
+        [self getStopsForLocation: self.lastRecordedLocation
+                   withCompletion:^{
+                       
+                       NSArray* stopStringArray = [self getStopListAsStringArray: self.stopList];
+                       
+                       [self.repoFactory.apiService getArrivalTimes:stopStringArray WithCallback:^(NSDictionary<NSString *, NSArray<TFArrivalPrediction*>*> *response) {
+                           
+                           self.predictionDict = response;
+                           self.isInitialised = YES;
+                           [self startRefreshTimer];
+                           
+                           [self.view refreshView];
+                       }];
+                       
+                   }];
+    }];
+}
+
+// MARK: Timer handling
+- (void)startRefreshTimer {
+    if (self.timer == nil && self.isInitialised == YES) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval: 30 repeats: YES block:^(NSTimer* timer) {
+            [self.repoFactory.apiService getArrivalTimes: self.predictionDict.allKeys WithCallback:^(NSDictionary<NSString *, NSArray<TFArrivalPrediction*>*> *response) {
+                self.predictionDict = response;
+                [self.view refreshView];
+            }];
+        }];
+    }
+}
+
+- (void)stopRefreshTimer {
+    if (self.timer != nil) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
+
+// MARK: Location Handling
+- (void)findMyLocationWithCompletion:(void (^)(void))completion   {
+    // Get the users location, or default it to London.
     [self.repoFactory.locationService getCurrentLocationWithCallback:^(CLLocation *location, NSError *error) {
         
         self.lastRecordedLocation = location;
     
         if (error) {
-            
+            // If there is an error - update it to be defaulted to london
             CLLocation *london = [[CLLocation alloc] initWithLatitude: ukDefaultLat longitude: ukDefaultLong];
             self.lastRecordedLocation = london;
             NSLog(@"%@", error);
         }
-        
-        self.lastRecordedLocation = [self processLocation: self.lastRecordedLocation ];
-        
-        [self getStopsForLocation: self.lastRecordedLocation];
+        completion();
     }];
 }
 
@@ -70,40 +116,35 @@ double const ukDefaultLat = 51.507711;
     return location;
 }
 
-- (void)getStopsForLocation:(CLLocation*) location {
+// MARK: API Calls
+- (void)getStopsForLocation:(CLLocation*) location withCompletion:(void (^)(void))completion {
     
     NSString *longString = [NSString stringWithFormat: @"%f", location.coordinate.longitude];
     NSString *latString = [NSString stringWithFormat: @"%f", location.coordinate.latitude];
     
     [self.repoFactory.apiService getStopsForLat: latString andlon: longString WithCallback:^(TFStopPointsResponse *response, NSError *error) {
-        self.stops = response;
-        
-        NSArray* stopStringArray = [self getStopList: self.stops];
-        
-        [self.repoFactory.apiService getArrivalTimes:stopStringArray WithCallback:^(NSDictionary<NSString *, NSArray<TFArrivalPrediction*>*> *response) {
-            
-            self.predictionDict = response;
-            [self.view refreshView];
-        }];
+        self.stopList = response.stopPoints;
+        completion();
     }];
 }
 
-- (NSArray*)getStopList: (TFStopPointsResponse*)stops {
+// pull out a list of station ids
+- (NSArray*)getStopListAsStringArray: (NSArray<TFStopPoint*>*)stops {
     
     NSMutableArray* stopStringArray = [[NSMutableArray alloc] init];
-    for (TFStopPoint *stop in self.stops.stopPoints) {
+    for (TFStopPoint *stop in stops) {
         [stopStringArray addObject: stop.naptanId];
     }
     return stopStringArray;
 }
 
 - (NSArray<TFArrivalPrediction*>*)getPredictionArrayForSection:(NSInteger) section {
-    return self.predictionDict[self.stops.stopPoints[section].naptanId];
+    return self.predictionDict[self.stopList[section].naptanId];
 }
 
 // MARK: Table View Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.stops.stopPoints.count;
+    return self.stopList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -112,12 +153,15 @@ double const ukDefaultLat = 51.507711;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
+        // The first item is always
         TFStationCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFStationCell reuseIdentifier]];
-        [cell setupWithStop: self.stops.stopPoints[indexPath.section] andDelegate: self];
+        [cell setupWithStop: self.stopList[indexPath.section] andDelegate: self];
         return cell;
     } else {
+        // adjust for the title cell
         NSInteger adjustedRow = indexPath.row - 1;
         NSArray<TFArrivalPrediction*>* predictionArray = [self getPredictionArrayForSection: indexPath.section];
+        
         TFArrivalPrediction *prediction = predictionArray[adjustedRow];
         
         TFLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: [TFLineTableViewCell reuseIdentifier]];
