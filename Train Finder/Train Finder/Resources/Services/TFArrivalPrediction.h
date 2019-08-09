@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString* platformName;
 @property (strong, nonatomic) NSNumber* timeToStation;
 @property (strong, nonatomic) NSString* towards;
+@property (strong, nonatomic) NSString* destinationName;
     
 @end

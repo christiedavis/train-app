@@ -15,9 +15,12 @@
 
 @end
 
+// TODO: It would be good to add some more/any tests to this to validate my logic
+@interface TFLandingPresenter (Tests)
+    - (void)findMyLocationWithCompletion:(void (^)(void))completion;
+@end
+
 @implementation Train_FinderTests
-
-
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,7 +31,6 @@
 }
 
 - (void)testExample {
-    
 }
 
 @end

@@ -27,7 +27,6 @@
 
 @end
 
-
 @implementation TFLandingPresenter
 
 double const ukMinLattitude = 49.9;

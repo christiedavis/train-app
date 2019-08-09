@@ -53,6 +53,7 @@
     self.stopPoint = stopPoint;
     self.selectionDelegate = selectionDelegate;
     
+    // The processing of facilities may be better handled elsewhere
     NSMutableArray<TFAdditionalProperties*>* validFeatures = [[NSMutableArray alloc] init];
     
     for (TFAdditionalProperties *feature in stopPoint.additionalProperties) {
@@ -80,6 +81,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    // Unfortunately this is not laying out quite right, could do with more time
     return [TFCategoryCell sizeWithText: self.features[indexPath.item].key withMaxWidth: [UIScreen mainScreen].bounds.size.width - 12];
 }
 

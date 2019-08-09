@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lineNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *towardsLabel;
 
 @end
 
@@ -23,6 +24,7 @@
 
 - (void) setupWithPrediction:(TFArrivalPrediction*) prediction {
     self.lineNameLabel.text = prediction.platformName;
+    self.towardsLabel.text = [NSString stringWithFormat: @"Towards: %@", prediction.towards];
     
     if (prediction.timeToStation.integerValue < 60) {
         // Less than an hour

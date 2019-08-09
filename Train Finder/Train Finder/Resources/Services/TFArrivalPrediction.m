@@ -16,7 +16,8 @@
              @"stationName": @"stationName",
              @"platformName": @"platformName",
              @"timeToStation": @"timeToStation",
-             @"towards": @"towards"
+             @"towards": @"towards",
+             @"destinationName": @"destinationName"
              };
 }
     
